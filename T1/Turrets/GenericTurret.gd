@@ -3,11 +3,19 @@ extends Node2D
 class_name GenericTurret
 
 @export var turret_data: TurretResource
-var level
+var real_tower = false
+#var level
+
+var cooldown = 0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	detect_enemies()
+	if real_tower and not is_instance_valid(current_target):
+		detect_enemies()
+	cooldown = max(cooldown - delta, 0)
+	if cooldown == 0 and is_instance_valid(current_target):
+		fire_at_target(current_target)
+	
 
 # Timer to manage firing rate
 var fire_timer: Timer
@@ -17,6 +25,7 @@ var current_target: GenericEnemy = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	cooldown = turret_data.cooldown
 	fire_timer = Timer.new()
 	fire_timer.wait_time = 1.0 / turret_data.fire_rate
 	fire_timer.one_shot = false
@@ -26,8 +35,7 @@ func _ready():
 
 # Detect enemies within range
 func detect_enemies():
-	var enemies = level.enemies.keys()
-	for enemy in enemies:
+	for enemy in get_tree().get_nodes_in_group("enemy"):
 		if global_position.distance_to(enemy.global_position) <= turret_data.range:
 			current_target = enemy
 			return
@@ -35,9 +43,11 @@ func detect_enemies():
 
 # Fire at the target
 func _on_fire_timer_timeout():
-	if current_target:
-		fire_at_target(current_target)
+	pass
+	#if current_target:
+		#fire_at_target(current_target)
 
 # Fire at the target (to be overridden by child classes)
 func fire_at_target(target: Area2D):
-	pass
+	cooldown = turret_data.cooldown
+

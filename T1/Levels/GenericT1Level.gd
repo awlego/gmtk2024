@@ -8,11 +8,9 @@ var enemies = {}
 
 func add_enemy(enemy):
 	enemies[enemy] = true
-	print("Made an enemy!")
 
 func remove_enemy(enemy):
 	enemies.erase(enemy)
-	print("An enemy disappeared!")
 	
 func register_factory():
 	%EnemyFactory.level = self

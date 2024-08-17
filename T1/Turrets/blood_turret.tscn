@@ -6,8 +6,9 @@
 
 [sub_resource type="Resource" id="Resource_gtann"]
 script = ExtResource("2_86bt0")
-range = 800.0
+range = 400.0
 fire_rate = 5.0
+cooldown = 1.0
 damage = 10
 
 [node name="BloodTurret" type="Node2D"]
@@ -15,7 +16,7 @@ scale = Vector2(2, 2)
 script = ExtResource("1_piwlq")
 turret_data = SubResource("Resource_gtann")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="BloodTurretSprite" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
 sprite_frames = ExtResource("3_2j0qw")
 animation = &"gif"
-autoplay = "gif"

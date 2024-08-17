@@ -17,6 +17,7 @@ func _ready():
 			grid_data[x].append(false) # false means the cell is empty
 	
 	place_tower(preload("res://T1/Turrets/blood_turret.tscn"), Vector2(250,250))
+	place_tower(preload("res://T1/Turrets/PulseTurret.tscn"), Vector2(350,350))
 	
 
 # Convert world position to grid position
@@ -38,7 +39,8 @@ func place_tower(tower_scene: PackedScene, world_position: Vector2):
 	var grid_position = world_to_grid(world_position)
 	if is_cell_free(grid_position):
 		var tower = tower_scene.instantiate()
-		tower.level = get_parent()
+		# tower.level = get_parent()
+		tower.real_tower = true
 		tower.position = grid_to_world(grid_position)
 		add_child(tower)
 		grid_data[grid_position.x][grid_position.y] = true

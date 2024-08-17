@@ -1,0 +1,15 @@
+[remap]
+
+importer="import_gif_to_sprite_frames"
+type="SpriteFrames"
+uid="uid://dcsmajmr8auw3"
+path="res://.godot/imported/BloodProjectile.gif-ea464a9248bfb5b05b3f353a83bf18e0.tres"
+
+[deps]
+
+source_file="res://assets/T1/Turrets/Blood/BloodProjectile.gif"
+dest_files=["res://.godot/imported/BloodProjectile.gif-ea464a9248bfb5b05b3f353a83bf18e0.tres"]
+
+[params]
+
+frames_per_second=30

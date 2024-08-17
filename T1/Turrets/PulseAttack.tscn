@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dj76arhwis4cs"]
+
+[ext_resource type="Script" path="res://PulseAttack.gd" id="1_47vko"]
+[ext_resource type="Texture2D" uid="uid://duc4scmwlnxdh" path="res://assets/T1/Turrets/Pulse/PulseTowerArc.png" id="2_a1tlb"]
+
+[node name="PulseAttack" type="Area2D"]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_47vko")
+
+[node name="PulseTowerArc" type="Sprite2D" parent="."]
+texture = ExtResource("2_a1tlb")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-32, 10, -11, -2, 11, -2, 32, 10, 32, -6, 0, -17, -32, -6)

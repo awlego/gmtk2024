@@ -1,13 +1,18 @@
 extends GenericTurret
-var projectile = preload("res://T1/Turrets/BloodProjectile.tscn")
-var frame_map = [7,7,8,0,1,2,3,4,5,6]
+
+var projectile = preload("res://T1/Turrets/PulseAttack.tscn")
+var frame_map = [6,5,4,3,2,1,0,8,7]
 
 # Fire at the target (to be overridden by child classes)
 func fire_at_target(target: Area2D):
 	var p = projectile.instantiate()
 	p.speed = 700
+	p.direction = global_position.direction_to(target.global_position)
+	p.rotation = p.direction.angle() + PI/2
+	p.duration = 0.5
+	p.scale = Vector2(1,1) * 0.25
+	p.scale_rate = 1
 	p.damage = turret_data.damage
-	p.target = target
 	add_child(p)
 	super.fire_at_target(target)
 
@@ -17,6 +22,6 @@ func _ready():
 
 func _process(delta):
 	super._process(delta)
-	var animate_progress = (turret_data.cooldown - cooldown) / turret_data.cooldown
+	var animate_progress = cooldown / turret_data.cooldown
 	var frame = min(frame_map.size() - 1, round(frame_map.size()*animate_progress))
-	%BloodTurretSprite.frame = frame_map[frame]
+	%TurretSprite.frame = frame_map[frame]

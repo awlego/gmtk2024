@@ -36,15 +36,14 @@ func create_enemy():
    # var sprite_path = sprite_directory + enemy_data.name + ".png"
 	#var sprite_texture = load(sprite_path)
 	#if sprite_texture:
-	#    enemy_instance.get_node("Sprite2D").texture = sprite_texture
 	#else:
 	#    print("Warning: No sprite found for enemy: " + enemy_data.name)
 
 	# Add the enemy to the scene tree
 	var enemy = enemy_instance.find_child("GenericEnemy")
-	if enemy:
-		enemy.level = level
-		level.add_enemy(enemy)
+	#if enemy:
+		#enemy.level = level
+		#level.add_enemy(enemy)
 	get_parent().add_child(enemy_instance)
 	#get_tree().create
 	return enemy_instance

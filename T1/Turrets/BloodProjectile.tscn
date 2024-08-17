@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://b4schcflnsv1d"]
+
+[ext_resource type="Script" path="res://T1/Turrets/Projectile.gd" id="1_1cf2c"]
+[ext_resource type="SpriteFrames" uid="uid://dcsmajmr8auw3" path="res://assets/T1/Turrets/Blood/BloodProjectile.gif" id="2_yck05"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r2qm2"]
+
+[node name="BloodProjectile" type="Node2D"]
+script = ExtResource("1_1cf2c")
+
+[node name="Area2D" type="Area2D" parent="."]
+scale = Vector2(0.2, 0.2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_r2qm2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
+scale = Vector2(4, 4)
+sprite_frames = ExtResource("2_yck05")
+animation = &"gif"
+autoplay = "gif"

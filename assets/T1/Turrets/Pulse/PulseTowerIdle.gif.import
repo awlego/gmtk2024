@@ -1,0 +1,15 @@
+[remap]
+
+importer="import_gif_to_sprite_frames"
+type="SpriteFrames"
+uid="uid://cnrwe0l11cxlc"
+path="res://.godot/imported/PulseTowerIdle.gif-08d70be173c5e0554b491742d5345c9d.tres"
+
+[deps]
+
+source_file="res://assets/T1/Turrets/Pulse/PulseTowerIdle.gif"
+dest_files=["res://.godot/imported/PulseTowerIdle.gif-08d70be173c5e0554b491742d5345c9d.tres"]
+
+[params]
+
+frames_per_second=30
