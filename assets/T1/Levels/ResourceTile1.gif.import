@@ -1,0 +1,14 @@
+[remap]
+
+importer="import_gif_to_animated_texture"
+type="AnimatedTexture"
+uid="uid://bvyr04uybtm4"
+path="res://.godot/imported/ResourceTile1.gif-2e6d1ad231a737d56707d6675042b0a5.tres"
+
+[deps]
+
+source_file="res://assets/T1/Levels/ResourceTile1.gif"
+dest_files=["res://.godot/imported/ResourceTile1.gif-2e6d1ad231a737d56707d6675042b0a5.tres"]
+
+[params]
+

@@ -1,0 +1,14 @@
+[remap]
+
+importer="image"
+type="Image"
+uid="uid://dogmvqdb7k1tn"
+path="res://.godot/imported/p1_walk.png-b8ca97fb46ca5b0fd93fac9ed3887ae5.image"
+
+[deps]
+
+source_file="res://assets/T1/Enemies/p1_walk/p1_walk.png"
+dest_files=["res://.godot/imported/p1_walk.png-b8ca97fb46ca5b0fd93fac9ed3887ae5.image"]
+
+[params]
+

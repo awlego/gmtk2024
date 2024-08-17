@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://d3ajns7mq22oe"]
+
+[ext_resource type="Script" path="res://T1/Levels/GenericT1Level.gd" id="1_c00iw"]
+[ext_resource type="Texture2D" uid="uid://bvyr04uybtm4" path="res://assets/T1/Levels/ResourceTile1.gif" id="2_usbbb"]
+[ext_resource type="Script" path="res://T1/Levels/EnemyFactory.gd" id="4_b2acs"]
+[ext_resource type="PackedScene" uid="uid://b0askpngx88er" path="res://T1/Levels/grid.tscn" id="5_a8olm"]
+
+[sub_resource type="Curve2D" id="Curve2D_52i72"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 256, 0, 0, 0, 0, 0, 256, 384)
+}
+point_count = 2
+
+[node name="Level001" type="Node2D"]
+scale = Vector2(2, 2)
+script = ExtResource("1_c00iw")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(256, 256)
+scale = Vector2(2, 2)
+texture = ExtResource("2_usbbb")
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_52i72")
+
+[node name="EnemyFactory" type="Node" parent="Path2D"]
+unique_name_in_owner = true
+script = ExtResource("4_b2acs")
+
+[node name="Grid" parent="." instance=ExtResource("5_a8olm")]

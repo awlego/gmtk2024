@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://bjrughclh2wse"]
+
+[ext_resource type="Script" path="res://T1/Turrets/blood_turret.gd" id="1_piwlq"]
+[ext_resource type="Script" path="res://T1/Turrets/TurretResource.gd" id="2_86bt0"]
+[ext_resource type="SpriteFrames" uid="uid://cjococaicxr77" path="res://assets/T1/Turrets/Blood/BloodShooter.gif" id="3_2j0qw"]
+
+[sub_resource type="Resource" id="Resource_gtann"]
+script = ExtResource("2_86bt0")
+range = 800.0
+fire_rate = 5.0
+damage = 10
+
+[node name="BloodTurret" type="Node2D"]
+scale = Vector2(2, 2)
+script = ExtResource("1_piwlq")
+turret_data = SubResource("Resource_gtann")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("3_2j0qw")
+animation = &"gif"
+autoplay = "gif"

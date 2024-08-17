@@ -1,0 +1,15 @@
+[remap]
+
+importer="import_gif_to_sprite_frames"
+type="SpriteFrames"
+uid="uid://plkkta0766x7"
+path="res://.godot/imported/BloodShooterAttack.gif-4d7c7f7a2a2bed71b1d8f5dbd7f0cd55.tres"
+
+[deps]
+
+source_file="res://assets/T1/Turrets/Blood/BloodShooterAttack.gif"
+dest_files=["res://.godot/imported/BloodShooterAttack.gif-4d7c7f7a2a2bed71b1d8f5dbd7f0cd55.tres"]
+
+[params]
+
+frames_per_second=30

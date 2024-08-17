@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://dpw3gqjuv7mn6"]
+
+[ext_resource type="Script" path="res://T1/Enemies/GenericEnemy.gd" id="1_q253o"]
+[ext_resource type="Script" path="res://T1/Enemies/EnemyResource.gd" id="2_s36up"]
+[ext_resource type="Texture2D" uid="uid://bbaow7dxh8iql" path="res://assets/T1/Enemies/p1_walk/PNG/p1_walk01.png" id="3_7jrpo"]
+
+[sub_resource type="Resource" id="Resource_2ag8q"]
+script = ExtResource("2_s36up")
+name = "Base Enemy"
+speed = 100.0
+type = "Ground"
+health = 100
+damage = 10
+reward = 50
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d36r6"]
+radius = 35.0
+height = 95.0
+
+[node name="BasicEnemy" type="PathFollow2D"]
+loop = false
+
+[node name="GenericEnemy" type="Area2D" parent="."]
+unique_name_in_owner = true
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_q253o")
+enemy_data = SubResource("Resource_2ag8q")
+
+[node name="P1Walk01" type="Sprite2D" parent="GenericEnemy"]
+texture = ExtResource("3_7jrpo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GenericEnemy"]
+shape = SubResource("CapsuleShape2D_d36r6")

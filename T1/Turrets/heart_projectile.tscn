@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://b4schcflnsv1d"]
+
+[ext_resource type="Script" path="res://T1/Turrets/Projectile.gd" id="1_2fr87"]
+[ext_resource type="Texture2D" uid="uid://bqjdn1a5335ul" path="res://assets/T1/Turrets/hud_heartFull.png" id="2_poiej"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r2qm2"]
+radius = 22.0
+
+[node name="HeartProjectile" type="Node2D"]
+script = ExtResource("1_2fr87")
+
+[node name="Area2D" type="Area2D" parent="."]
+scale = Vector2(0.2, 0.2)
+
+[node name="HudHeartFull" type="Sprite2D" parent="Area2D"]
+texture = ExtResource("2_poiej")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_r2qm2")

@@ -1,0 +1,15 @@
+[remap]
+
+importer="import_gif_to_sprite_frames"
+type="SpriteFrames"
+uid="uid://cjubn1imhob56"
+path="res://.godot/imported/BloodShooterIdle.gif-951f1bef80cdc32d13c6d81d0577146b.tres"
+
+[deps]
+
+source_file="res://assets/T1/Turrets/Blood/BloodShooterIdle.gif"
+dest_files=["res://.godot/imported/BloodShooterIdle.gif-951f1bef80cdc32d13c6d81d0577146b.tres"]
+
+[params]
+
+frames_per_second=30
