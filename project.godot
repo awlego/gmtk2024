@@ -14,6 +14,17 @@ config/name="Gmtk 2024"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Globals="*res://Globals.gd"
+
+[layer_names]
+
+2d_physics/layer_1="Enemies"
+2d_physics/layer_2="Attacks"
+2d_physics/layer_3="Towers"
+2d_physics/layer_4="Path"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

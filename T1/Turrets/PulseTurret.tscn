@@ -11,7 +11,7 @@ fire_rate = 1.0
 cooldown = 1.5
 damage = 10
 
-[node name="PulseTurret" type="Node2D"]
+[node name="PulseTurret" type="Area2D"]
 scale = Vector2(2, 2)
 script = ExtResource("1_rkhp1")
 turret_data = SubResource("Resource_sikbc")

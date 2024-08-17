@@ -32,7 +32,7 @@ func create_turret_preview():
 	if turret_instance:
 		turret_instance.queue_free()
 	turret_instance = load("res://T1/Turrets/" + selected_turret_type + ".tscn").instantiate()
-	add_child(turret_instance)
+	level.add_child(turret_instance)
 	turret_instance.visible = true
 	turret_instance.z_index = 100  # Ensure it is on top
 	set_process(true)  # Ensure _process() is called to update the position
@@ -57,24 +57,27 @@ func place_turret():
 			var level_rect = Rect2(level_position, level_size)
 
 			# Check if the turret's position is within the level's bounds
-			var turret_pos = turret_instance.position
-			if level_rect.has_point(turret_pos):
-				level.add_child(turret_instance)
-				turret_instance.position = turret_pos.round()  # Optional: snap to grid
+			var turret_pos = turret_instance.global_position
+			if level_rect.has_point(turret_pos) and turret_instance.get_overlapping_areas().size() == 0:
+				#turret_instance.reparent(level)
+				turret_instance.real_tower = true
+				turret_instance.z_index = 0
+				turret_instance.global_position = turret_pos.round()  # Optional: snap to grid
 				turret_instance = null  # Clear the instance after placement
 			else:
 				print("Invalid placement location!")
 		else:
 			print("Background or texture not found!")
 
-
+func valid_location(turret_instance):
+	return level_rect.has_point(turret_instance.global_position) and turret_instance.get_overlapping_areas().size() == 0
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if turret_instance:
-		var turret_pos = get_global_mouse_position()
-		turret_instance.position = turret_pos
+		turret_instance.global_position = get_global_mouse_position()
 		
-		if level_rect.has_point(turret_pos):
+		if valid_location(turret_instance):
 			turret_instance.modulate = Color(1, 1, 1, 1)  # Normal appearance (valid placement)
 		else:
 			turret_instance.modulate = Color(1, 0, 0, 0.5)  # Red and semi-transparent (invalid placement)
