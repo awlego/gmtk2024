@@ -19,8 +19,10 @@ func fire_at_target(target: Area2D):
 
 func _ready():
 	super._ready()
-	turret_data.range = 500
-	turret_data.damage = 10
+	turret_data = Globals.PULSE_STATS
+	#turret_data.range = 500
+	#turret_data.damage = 10
+	print(turret_data, turret_data.damage, turret_data.range, turret_data.cooldown)
 	cooldown = turret_data.cooldown * .8
 
 func _process(delta):

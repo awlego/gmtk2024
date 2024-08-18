@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bjwcors1sisqx"]
+[gd_scene load_steps=5 format=3 uid="uid://bjwcors1sisqx"]
 
 [ext_resource type="Script" path="res://T1/Turrets/PulseTurret.gd" id="1_rkhp1"]
 [ext_resource type="Script" path="res://T1/Turrets/TurretResource.gd" id="2_wt7et"]
@@ -7,13 +7,9 @@
 [sub_resource type="Resource" id="Resource_sikbc"]
 script = ExtResource("2_wt7et")
 range = 300.0
-fire_rate = 1.0
 cooldown = 1.5
 damage = 10
 cost = 10
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lucho"]
-size = Vector2(16, 16)
 
 [node name="PulseTurret" type="Area2D"]
 scale = Vector2(2, 2)
@@ -24,6 +20,3 @@ turret_data = SubResource("Resource_sikbc")
 unique_name_in_owner = true
 sprite_frames = ExtResource("2_yjmia")
 animation = &"gif"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_lucho")

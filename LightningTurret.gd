@@ -53,13 +53,20 @@ func draw_lightning_to_target(from_pos, target, chain, damage, hits = {}):
 		draw_lightning_to_target(lpos, next, chain-1, damage, hits)
 	
 func find_enemy_near(tpos, max_d, except):
+	var found = 0
+	var next = null
 	for enemy in get_tree().get_nodes_in_group("enemy"):
 		if enemy not in except and tpos.distance_to(enemy.global_position) < max_d:
-			return enemy
+			found += 1
+			#if next == null:
+				#next = enemy
+			if (randi() % found) == 0:
+				next = enemy
+	return next
 	
 func _ready():
 	super._ready()
-	cooldown = turret_data.cooldown * .8
+	turret_data = Globals.LIGHTNING_STATS
 
 func _process(delta):
 	super._process(delta)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bjrughclh2wse"]
+[gd_scene load_steps=5 format=3 uid="uid://bjrughclh2wse"]
 
 [ext_resource type="Script" path="res://T1/Turrets/blood_turret.gd" id="1_piwlq"]
 [ext_resource type="Script" path="res://T1/Turrets/TurretResource.gd" id="2_86bt0"]
@@ -7,13 +7,9 @@
 [sub_resource type="Resource" id="Resource_gtann"]
 script = ExtResource("2_86bt0")
 range = 400.0
-fire_rate = 5.0
 cooldown = 1.0
 damage = 10
 cost = 10
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_83trv"]
-size = Vector2(16, 16)
 
 [node name="BloodTurret" type="Area2D"]
 scale = Vector2(2, 2)
@@ -26,6 +22,3 @@ turret_data = SubResource("Resource_gtann")
 unique_name_in_owner = true
 sprite_frames = ExtResource("3_2j0qw")
 animation = &"gif"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_83trv")

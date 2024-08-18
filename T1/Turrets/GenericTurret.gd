@@ -5,7 +5,7 @@ extends Area2D
 @export var turret_data: TurretResource
 var real_tower = false
 #var level
-
+	
 var cooldown = 0
 #TODO: Change detect enemies to use a range collision circle and signals instead
 
@@ -31,6 +31,11 @@ func _ready():
 	cooldown = turret_data.cooldown
 	collision_layer = Globals.TOWER_LAYER
 	collision_mask = Globals.TOWER_MASK
+	var collisionNode = CollisionShape2D.new()
+	var rect = RectangleShape2D.new()
+	rect.size = Vector2(15, 15)
+	collisionNode.shape = rect
+	add_child(collisionNode)
 
 # Detect enemies within range
 func detect_enemies():
