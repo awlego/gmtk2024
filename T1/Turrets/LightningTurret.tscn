@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://kj0iwd3ogrby"]
+
+[ext_resource type="Script" path="res://LightningTurret.gd" id="1_pl4ye"]
+[ext_resource type="Script" path="res://T1/Turrets/TurretResource.gd" id="2_qacg2"]
+[ext_resource type="SpriteFrames" uid="uid://bmmsacnjwppo7" path="res://assets/T1/Turrets/Lightning/LightningTower.gif" id="2_xnr6v"]
+
+[sub_resource type="Resource" id="Resource_vw5nd"]
+script = ExtResource("2_qacg2")
+range = 300.0
+fire_rate = 1.0
+cooldown = 3.0
+damage = 10
+cost = 10
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0kl73"]
+size = Vector2(16, 16)
+
+[node name="LightningTurret" type="Area2D"]
+scale = Vector2(2, 2)
+script = ExtResource("1_pl4ye")
+turret_data = SubResource("Resource_vw5nd")
+
+[node name="TurretSprite" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+sprite_frames = ExtResource("2_xnr6v")
+animation = &"gif"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_0kl73")
