@@ -7,7 +7,8 @@ signal turret_selected(turret_type)
 var starting_turrets = [
 	{"type": "blood_turret", "sprite_path": "res://assets/T1/Turrets/Blood/BloodShooter.gif"},
 	{"type": "PulseTurret", "sprite_path": "res://assets/T1/Turrets/Pulse/PulseTowerAttack.gif"},
-	{"type": "LightningTurret", "sprite_path": "res://assets/T1/Turrets/Lightning/LightningTower.gif"}
+	{"type": "LightningTurret", "sprite_path": "res://assets/T1/Turrets/Lightning/LightningTower.gif"},
+	{"type": "MagicTower", "sprite_path": "res://assets/T1/Turrets/Magic/MagicTower.gif"},
 ]
 
 
@@ -15,6 +16,8 @@ var starting_turrets = [
 func _ready():
 	var label = Label.new()
 	label.text = "Add Turret"
+	$VBoxContainer.add_theme_constant_override("separation", 24)
+
 	vbox_container.add_child(label)
 	for turret in starting_turrets:
 		create_turret_texture_button(turret)

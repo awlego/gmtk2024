@@ -1,0 +1,15 @@
+[remap]
+
+importer="import_gif_to_sprite_frames"
+type="SpriteFrames"
+uid="uid://ywaxd3k1qgxn"
+path="res://.godot/imported/MagicTower.gif-8f0b07bfb9b56d7abe8912a797308e38.tres"
+
+[deps]
+
+source_file="res://assets/T1/Turrets/Magic/MagicTower.gif"
+dest_files=["res://.godot/imported/MagicTower.gif-8f0b07bfb9b56d7abe8912a797308e38.tres"]
+
+[params]
+
+frames_per_second=30

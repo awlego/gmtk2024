@@ -1,0 +1,15 @@
+[remap]
+
+importer="import_gif_to_sprite_frames"
+type="SpriteFrames"
+uid="uid://c2m5ma5rhiqsv"
+path="res://.godot/imported/MagicProjectile.gif-8822d0af29d3442a72093130dd8ba955.tres"
+
+[deps]
+
+source_file="res://assets/T1/Turrets/Magic/MagicProjectile.gif"
+dest_files=["res://.godot/imported/MagicProjectile.gif-8822d0af29d3442a72093130dd8ba955.tres"]
+
+[params]
+
+frames_per_second=30

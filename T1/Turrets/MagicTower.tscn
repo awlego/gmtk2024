@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://ctnu33yvtbs88"]
+
+[ext_resource type="Script" path="res://T1/Turrets/MagicTower.gd" id="1_ak7db"]
+[ext_resource type="SpriteFrames" uid="uid://ywaxd3k1qgxn" path="res://assets/T1/Turrets/Magic/MagicTower.gif" id="2_ic6qx"]
+[ext_resource type="Script" path="res://T1/Turrets/TurretResource.gd" id="2_m3trd"]
+
+[sub_resource type="Resource" id="Resource_dmnnn"]
+script = ExtResource("2_m3trd")
+range = 80.0
+fire_rate = 1.0
+cooldown = 1.0
+damage = 10
+cost = 10
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x8nt6"]
+
+[node name="GenericTurret" type="Area2D"]
+script = ExtResource("1_ak7db")
+turret_data = SubResource("Resource_dmnnn")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("2_ic6qx")
+animation = &"gif"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_x8nt6")
