@@ -7,7 +7,7 @@ var level: GenericT1Level
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var spawn_timer = Timer.new()
-	spawn_timer.set_wait_time(2.0)  # Spawn every 2 seconds
+	spawn_timer.set_wait_time(0.5)  # Spawn every 2 seconds
 	spawn_timer.set_one_shot(false)  # Repeat
 	spawn_timer.connect("timeout", create_enemy)
 	spawn_timer.autostart = true

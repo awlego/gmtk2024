@@ -18,6 +18,7 @@ func _ready():
 	
 	place_tower(preload("res://T1/Turrets/blood_turret.tscn"), Vector2(250,250))
 	place_tower(preload("res://T1/Turrets/PulseTurret.tscn"), Vector2(350,350))
+	place_tower(preload("res://T1/Turrets/LightningTurret.tscn"), Vector2(150,150))
 	
 
 # Convert world position to grid position
