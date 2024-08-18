@@ -1,0 +1,15 @@
+[remap]
+
+importer="import_gif_to_sprite_frames"
+type="SpriteFrames"
+uid="uid://nmdwi6og1xk7"
+path="res://.godot/imported/Slime.gif-99bf0482f1cb5cff8adc8d39ad46e554.tres"
+
+[deps]
+
+source_file="res://assets/T1/Enemies/Slime.gif"
+dest_files=["res://.godot/imported/Slime.gif-99bf0482f1cb5cff8adc8d39ad46e554.tres"]
+
+[params]
+
+frames_per_second=30

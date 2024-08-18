@@ -1,0 +1,15 @@
+[remap]
+
+importer="import_gif_to_sprite_frames"
+type="SpriteFrames"
+uid="uid://0l340fj35t5n"
+path="res://.godot/imported/Geometro.gif-14a38cfd0fea51e9ff2ddd97b5b89f79.tres"
+
+[deps]
+
+source_file="res://assets/T1/Enemies/Geometro.gif"
+dest_files=["res://.godot/imported/Geometro.gif-14a38cfd0fea51e9ff2ddd97b5b89f79.tres"]
+
+[params]
+
+frames_per_second=30
