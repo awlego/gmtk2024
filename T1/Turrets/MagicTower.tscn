@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctnu33yvtbs88"]
+
+[ext_resource type="Script" path="res://T1/Turrets/MagicTower.gd" id="1_ak7db"]
+[ext_resource type="SpriteFrames" uid="uid://ywaxd3k1qgxn" path="res://assets/T1/Turrets/Magic/MagicTower.gif" id="2_ic6qx"]
+
+[node name="MagicTower" type="Area2D"]
+script = ExtResource("1_ak7db")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("2_ic6qx")
+animation = &"gif"

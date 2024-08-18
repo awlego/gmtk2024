@@ -28,7 +28,7 @@ var current_target: GenericEnemy = null
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#super()
-	cooldown = turret_data.cooldown
+	#cooldown = turret_data.cooldown
 	collision_layer = Globals.TOWER_LAYER
 	collision_mask = Globals.TOWER_MASK
 	var collisionNode = CollisionShape2D.new()
