@@ -10,7 +10,7 @@ func fire_at_target(target: Area2D):
 	p.speed = 700
 	p.direction = global_position.direction_to(target.global_position)
 	p.rotation = p.direction.angle() + PI/2
-	p.duration = 0.5
+	p.duration = 0.75
 	p.scale = Vector2(1,1) * 0.25
 	p.scale_rate = 1
 	p.damage = turret_data.damage
@@ -19,7 +19,8 @@ func fire_at_target(target: Area2D):
 
 func _ready():
 	super._ready()
-	turret_data.range = 45
+	turret_data.range = 500
+	turret_data.damage = 10
 	cooldown = turret_data.cooldown * .8
 
 func _process(delta):
