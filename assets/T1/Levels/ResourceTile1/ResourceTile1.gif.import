@@ -1,0 +1,15 @@
+[remap]
+
+importer="import_gif_to_sprite_frames"
+type="SpriteFrames"
+uid="uid://dli31mhkb1pt6"
+path="res://.godot/imported/ResourceTile1.gif-fc67efc6d93d6737d569aa71ee43f42b.tres"
+
+[deps]
+
+source_file="res://assets/T1/Levels/ResourceTile1/ResourceTile1.gif"
+dest_files=["res://.godot/imported/ResourceTile1.gif-fc67efc6d93d6737d569aa71ee43f42b.tres"]
+
+[params]
+
+frames_per_second=30

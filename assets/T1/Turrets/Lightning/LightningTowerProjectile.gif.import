@@ -1,0 +1,15 @@
+[remap]
+
+importer="import_gif_to_sprite_frames"
+type="SpriteFrames"
+uid="uid://b5w7qqids83n5"
+path="res://.godot/imported/LightningTowerProjectile.gif-fc5d8972f4c901ad155969d0bc7d55be.tres"
+
+[deps]
+
+source_file="res://assets/T1/Turrets/Lightning/LightningTowerProjectile.gif"
+dest_files=["res://.godot/imported/LightningTowerProjectile.gif-fc5d8972f4c901ad155969d0bc7d55be.tres"]
+
+[params]
+
+frames_per_second=30

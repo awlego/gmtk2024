@@ -3,6 +3,7 @@ extends GenericTurret
 var projectile = preload("res://T1/Turrets/PulseAttack.tscn")
 var frame_map = [6,5,4,3,2,1,0,8,7]
 
+
 # Fire at the target (to be overridden by child classes)
 func fire_at_target(target: Area2D):
 	var p = projectile.instantiate()
@@ -18,6 +19,7 @@ func fire_at_target(target: Area2D):
 
 func _ready():
 	super._ready()
+	turret_data.range = 45
 	cooldown = turret_data.cooldown * .8
 
 func _process(delta):

@@ -1,0 +1,15 @@
+[remap]
+
+importer="import_gif_to_sprite_frames"
+type="SpriteFrames"
+uid="uid://dyjfj2la020f1"
+path="res://.godot/imported/ResourceTile1Generate.gif-cfc3b0729f5b5990621850a0f4794bdc.tres"
+
+[deps]
+
+source_file="res://assets/T1/Levels/ResourceTile1/ResourceTile1Generate.gif"
+dest_files=["res://.godot/imported/ResourceTile1Generate.gif-cfc3b0729f5b5990621850a0f4794bdc.tres"]
+
+[params]
+
+frames_per_second=30
