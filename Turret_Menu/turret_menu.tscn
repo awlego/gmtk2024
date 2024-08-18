@@ -15,7 +15,3 @@ script = ExtResource("1_ep451")
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
-
-[node name="blood_turret" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-text = "Blood Turret"

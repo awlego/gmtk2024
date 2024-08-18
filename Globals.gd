@@ -7,6 +7,8 @@ const PATH_LAYER = 0b00000000_00000000_00000000_000001000
 
 const TOWER_MASK = TOWER_LAYER + PATH_LAYER
 
+var money = 100
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.

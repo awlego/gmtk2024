@@ -7,3 +7,4 @@ class_name TurretResource
 @export var fire_rate: float = 1.0
 @export var cooldown: float = 1.0
 @export var damage: int = 10
+@export var cost: int = 10

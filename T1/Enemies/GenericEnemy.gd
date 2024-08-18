@@ -6,6 +6,7 @@ class_name GenericEnemy
 #var level: GenericT1Level
 var health = 100
 
+
 # Signal emitted when the enemy is defeated
 signal defeated
 
@@ -27,9 +28,12 @@ func apply_damage(amount: int):
 
 # Function called when the enemy is defeated
 func die():
+	if enemy_data.currency == "money":
+		Globals.money += enemy_data.reward
 	emit_signal("defeated")
 	#if level:
 		#level.remove_enemy(self)
+	print(Globals.money)
 	done()
 
 func end_of_path():

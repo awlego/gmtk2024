@@ -6,8 +6,8 @@ signal turret_selected(turret_type)
 # A list of dictionaries containing the turret type and corresponding sprite path
 var starting_turrets = [
 	{"type": "blood_turret", "sprite_path": "res://assets/T1/Turrets/Blood/BloodShooter.gif"},
-	{"type": "PulseTurret", "sprite_path": "res://assets/T1/Turrets/Pulse/PulseTowerAttack.gif"}
-	#{"type": "ice_tower", "sprite_path": "res://path_to_ice_tower_sprite.png"}
+	{"type": "PulseTurret", "sprite_path": "res://assets/T1/Turrets/Pulse/PulseTowerAttack.gif"},
+	{"type": "LightningTurret", "sprite_path": "res://assets/T1/Turrets/Lightning/LightningTower.gif"}
 ]
 
 

@@ -10,6 +10,7 @@ range = 300.0
 fire_rate = 1.0
 cooldown = 1.5
 damage = 10
+cost = 10
 
 [node name="PulseTurret" type="Area2D"]
 scale = Vector2(2, 2)

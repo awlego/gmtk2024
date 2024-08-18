@@ -1,6 +1,5 @@
 extends Control
 
-
 @onready var menu = $"../Control2/TurretMenu"
 @onready var level = $"../Control/Level001"
 var selected_turret_type : String = ""
@@ -12,11 +11,11 @@ func _ready():
 	menu.connect("turret_selected", Callable(self, "_on_turret_selected"))
 
 	var background = level.get_child(0) as Sprite2D
-	
+
 	if background and background.texture:
 		var texture_size = background.texture.get_size() * background.global_scale
 		var level_position = background.global_position - (texture_size / 2)
-		
+
 		# Calculate and cache the level's boundary rectangle
 		level_rect = Rect2(level_position, texture_size)
 	else:
@@ -106,6 +105,7 @@ func place_turret():
 				turret_instance.z_index = 0
 				turret_instance.global_position = turret_pos.round()  # Optional: snap to grid
 				hide_turret_range(turret_instance)
+				Globals.money -= turret_instance.turret_data.cost
 				turret_instance = null  # Clear the instance after placement
 			else:
 				print("Invalid placement location!")
