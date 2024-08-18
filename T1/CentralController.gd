@@ -24,6 +24,7 @@ func _ready():
 
 
 func _on_turret_selected(turret_type):
+	print("Turret selected", turret_type)
 	selected_turret_type = turret_type
 	create_turret_preview()
 
@@ -35,8 +36,36 @@ func create_turret_preview():
 	level.add_child(turret_instance)
 	turret_instance.visible = true
 	turret_instance.z_index = 100  # Ensure it is on top
+	
+		# Create range indicator
+	var range_indicator = create_range_indicator(turret_instance.turret_data.range/4)
+	turret_instance.add_child(range_indicator)
+	
 	set_process(true)  # Ensure _process() is called to update the position
 
+
+func create_range_indicator(range_value):
+	var indicator = Node2D.new()
+	indicator.z_index = 99  # Just below the turret
+	
+	var circle = DrawingNode.new()
+	circle.set_script(load("res://RangeCircle.gd"))
+	print("Range!", range_value)
+	circle.radius = range_value
+	circle.color = Color(1, 1, 1, 0.2)  # Semi-transparent white
+	
+	indicator.add_child(circle)
+	return indicator
+
+# This is a custom DrawingNode class to draw the circle
+class DrawingNode:
+	extends Node2D
+	
+	var radius = 50
+	var color = Color(1, 1, 1, 0.2)
+	
+	func _draw():
+		draw_circle(Vector2.ZERO, radius, color)
 
 func _on_level_clicked(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.pressed:
