@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://bd8i1vv5lir8p"]
+
+[ext_resource type="Script" path="res://T1/Enemies/geometro.gd" id="1_idomo"]
+[ext_resource type="SpriteFrames" uid="uid://0l340fj35t5n" path="res://assets/T1/Enemies/Geometro.gif" id="2_sgq4j"]
+[ext_resource type="Script" path="res://T1/Enemies/EnemyResource.gd" id="2_yv075"]
+
+[sub_resource type="Resource" id="Resource_qe65d"]
+script = ExtResource("2_yv075")
+name = "Base Enemy"
+speed = 100.0
+type = "Ground"
+health = 100
+damage = 10
+reward = 5
+currency = "money"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bvy50"]
+
+[node name="PathFollow2D" type="PathFollow2D"]
+
+[node name="GenericEnemy" type="Area2D" parent="."]
+script = ExtResource("1_idomo")
+enemy_data = SubResource("Resource_qe65d")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="GenericEnemy"]
+sprite_frames = ExtResource("2_sgq4j")
+animation = &"gif"
+autoplay = "gif"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GenericEnemy"]
+shape = SubResource("CircleShape2D_bvy50")

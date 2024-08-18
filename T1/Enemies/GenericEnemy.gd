@@ -14,6 +14,7 @@ signal defeated
 func _ready():
 	add_to_group("enemy")
 	health = enemy_data.health
+	get_parent().loop = false
 	pass # Initialization code here
 
 func done():

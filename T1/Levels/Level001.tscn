@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://d3ajns7mq22oe"]
+[gd_scene load_steps=6 format=3 uid="uid://d3ajns7mq22oe"]
 
 [ext_resource type="Script" path="res://T1/Levels/GenericT1Level.gd" id="1_b3hkk"]
 [ext_resource type="Texture2D" uid="uid://bvyr04uybtm4" path="res://assets/T1/Levels/ResourceTile1.gif" id="2_usbbb"]
@@ -10,12 +10,6 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 256, 0, 0, 0, 0, 0, 256, 384)
 }
 point_count = 2
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qrylo"]
-size = Vector2(32.5, 351.5)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5y646"]
-size = Vector2(65, 65.5)
 
 [node name="Level001" type="Node2D"]
 scale = Vector2(2, 2)
@@ -32,17 +26,5 @@ curve = SubResource("Curve2D_52i72")
 [node name="EnemyFactory" type="Node" parent="Path2D"]
 unique_name_in_owner = true
 script = ExtResource("4_b2acs")
-
-[node name="Path" type="Area2D" parent="."]
-collision_layer = 8
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Path"]
-position = Vector2(256.25, 175.75)
-shape = SubResource("RectangleShape2D_qrylo")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Path"]
-position = Vector2(256, 383.75)
-shape = SubResource("RectangleShape2D_5y646")
 
 [node name="Grid" parent="." instance=ExtResource("5_a8olm")]

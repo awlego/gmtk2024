@@ -19,13 +19,22 @@ func _process(delta):
 	pass
 
 @export var enemy_scene = preload("res://T1/Enemies/BasicEnemy.tscn") # The generic enemy scene
+@export var geometro_scene = preload("res://T1/Enemies/geometro_enemy.tscn")
+@export var slime_scene = preload("res://T1/Enemies/slime_enemy.tscn")
 
 #@export var sprite_directory: String = "res://sprites/enemies/" # Directory where enemy sprites are stored
 
 # Function to create an enemy
 func create_enemy():
 	# Instantiate the generic enemy scene
-	var enemy_instance = enemy_scene.instantiate()
+	var x = randi_range(0,2)
+	var enemy_instance = 0
+	if x == 0:
+		enemy_instance = slime_scene.instantiate()
+	elif x == 1:
+		enemy_instance = enemy_scene.instantiate()
+	else:
+		enemy_instance = geometro_scene.instantiate()
 	#enemy_instance.position = position
 
 	# Assign the enemy data
