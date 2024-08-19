@@ -47,6 +47,7 @@ var money = 100
 var scenes = {
 	"level1": "res://scenes/Level1.tscn",
 	"level2": "res://scenes/Level2.tscn",
+	"level3": "res://scenes/Level3.tscn",
 	"main_menu": "res://scenes/MainMenu.tscn"
 }
 

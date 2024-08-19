@@ -1,0 +1,15 @@
+[remap]
+
+importer="import_gif_to_sprite_frames"
+type="SpriteFrames"
+uid="uid://d3o87qitmvrs2"
+path="res://.godot/imported/ogre.gif-c4befbad3539df587d4d93dbc8ea587c.tres"
+
+[deps]
+
+source_file="res://assets/T1/Enemies/ogre.gif"
+dest_files=["res://.godot/imported/ogre.gif-c4befbad3539df587d4d93dbc8ea587c.tres"]
+
+[params]
+
+frames_per_second=30

@@ -5,10 +5,12 @@ extends GenericEnemy
 func _ready():
 	super()
 	scale = Vector2(2,2)
-	enemy_data.speed = 110
+	enemy_data.health = 250
+	enemy_data.speed = 80
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	walk(delta)
+
