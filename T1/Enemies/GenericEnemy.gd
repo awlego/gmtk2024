@@ -5,6 +5,7 @@ class_name GenericEnemy
 @export var enemy_data: EnemyResource
 #var level: GenericT1Level
 var health = 100
+var speed_mod = 1.0
 
 
 # Signal emitted when the enemy is defeated
@@ -56,6 +57,6 @@ func _process(delta):
 	pass
 
 func walk(delta):
-	get_parent().progress += enemy_data.speed * delta
+	get_parent().progress += enemy_data.speed * delta * speed_mod
 	if get_parent().progress_ratio == 1.0:
 		end_of_path()

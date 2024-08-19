@@ -50,6 +50,59 @@ var scenes = {
 	"main_menu": "res://scenes/MainMenu.tscn"
 }
 
+var faeries = ["Blue", "Green", "Yellow", "Red", "Purple", "Karen"]
+
+var faerie_sprites = {
+}
+func init_faerie_sprites():
+	for c in faeries:
+		faerie_sprites[c] = load("res://assets/T1/Enemies/Faerie_" + c + ".bmp")
+
+var faerie_stats = {
+	"Blue": EnemyResource.new(),
+	"Green": EnemyResource.new(), 
+	"Yellow": EnemyResource.new(), 
+	"Red": EnemyResource.new(), 
+	"Purple": EnemyResource.new(), 
+	"Karen": EnemyResource.new()
+}
+func init_faerie_stats():
+	faerie_stats["Blue"].name = "Blue Faerie"
+	faerie_stats["Blue"].speed = 90
+	faerie_stats["Blue"].health = 80
+	faerie_stats["Blue"].damage = 5
+	faerie_stats["Blue"].reward = 8
+	
+	faerie_stats["Green"].name = "Green Faerie"
+	faerie_stats["Green"].speed = 110
+	faerie_stats["Green"].health = 110
+	faerie_stats["Green"].damage = 10
+	faerie_stats["Green"].reward = 12
+	
+	faerie_stats["Yellow"].name = "Yellow Faerie"
+	faerie_stats["Yellow"].speed = 200
+	faerie_stats["Yellow"].health = 80
+	faerie_stats["Yellow"].damage = 5
+	faerie_stats["Yellow"].reward = 15
+	
+	faerie_stats["Red"].name = "Red Faerie"
+	faerie_stats["Red"].speed = 100
+	faerie_stats["Red"].health = 200
+	faerie_stats["Red"].damage = 10
+	faerie_stats["Red"].reward = 20
+	
+	faerie_stats["Purple"].name = "Purple Faerie"
+	faerie_stats["Purple"].speed = 200
+	faerie_stats["Purple"].health = 200
+	faerie_stats["Purple"].damage = 20
+	faerie_stats["Purple"].reward = 30
+	
+	faerie_stats["Karen"].name = "Karen"
+	faerie_stats["Karen"].speed = 400
+	faerie_stats["Karen"].health = 50
+	faerie_stats["Karen"].damage = 10
+	faerie_stats["Karen"].reward = 1
+
 # Current active scene reference
 var current_scene: Node = null
 
@@ -97,3 +150,5 @@ func switch_scene(scene_name: String) -> void:
 
 func _init():
 	init_tower_stats()
+	init_faerie_stats()
+	init_faerie_sprites()

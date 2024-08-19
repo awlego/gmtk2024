@@ -35,14 +35,20 @@ func delayed_create(min = 0, max = 4):
 # Function to create an enemy
 func create_enemy():
 	# Instantiate the generic enemy scene
-	var x = randi_range(0,2)
+	var x = randi_range(0,3)
 	var enemy_instance = 0
 	if x == 0:
 		enemy_instance = slime_scene.instantiate()
 	elif x == 1:
 		enemy_instance = enemy_scene.instantiate()
-	else:
+	elif x == 2:
 		enemy_instance = geometro_scene.instantiate()
+	else:
+		var e = PathFollow2D.new()
+		e.loop = false
+		var fae = Faerie.new()
+		e.add_child(fae)
+		enemy_instance = e
 	#enemy_instance.position = position
 
 	# Assign the enemy data
@@ -57,7 +63,7 @@ func create_enemy():
 	#    print("Warning: No sprite found for enemy: " + enemy_data.name)
 
 	# Add the enemy to the scene tree
-	var enemy = enemy_instance.find_child("GenericEnemy")
+	#var enemy = enemy_instance.find_child("GenericEnemy")
 	#if enemy:
 		#enemy.level = level
 		#level.add_enemy(enemy)
