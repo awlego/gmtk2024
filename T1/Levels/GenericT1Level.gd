@@ -18,7 +18,7 @@ func register_factory():
 func _ready():
 	scale = Vector2(2, 2)
 	add_to_group("level")
-	register_factory()
+	#register_factory()
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

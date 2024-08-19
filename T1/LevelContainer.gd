@@ -31,8 +31,10 @@ func load_level(level_number: int):
 	
 	var level_scene = load("res://T1/Levels/Level%03d.tscn" % level_number)
 	if level_scene:
-		print("Loading level", level_number)
+		print("HELLO222")
+		print("Loading level ", level_number)
 		current_level = level_scene.instantiate()
 		level_container.add_child(current_level)
+		current_level.add_child(LevelGenerator.create_level())
 	else:
 		print("Failed to load level %d" % level_number)

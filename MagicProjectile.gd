@@ -64,4 +64,5 @@ func start_hit(delta):
 	global_position = target_pos
 	strobing = true
 	cooldown = 0
+	z_index = Globals.Z_ENEMY - 1
 	process_strobe(delta)
