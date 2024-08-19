@@ -2,7 +2,7 @@ extends Node
 
 class_name EnemyFactory
 
-var level: GenericT1Level
+#var level: GenericT1Level
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

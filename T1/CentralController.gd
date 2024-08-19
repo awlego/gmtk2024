@@ -14,7 +14,7 @@ var current_level_int: int = 0
 func _ready():
 	menu.connect("turret_selected", Callable(self, "_on_turret_selected"))
 	load_level(001)
-	#level_rect = Rect2(Vector2(0,0), Vector2(1024,1024))
+	level_rect = Rect2(Vector2(0,0), Vector2(1024,1024))
 
 
 func load_level(level_number: int):
@@ -26,9 +26,13 @@ func load_level(level_number: int):
 		current_level.queue_free()
 	
 	var level_scene = load("res://T1/Levels/Level%03d.tscn" % level_number)
-	if level_scene:
-		print("Loading level", level_number)
+	if true:
+		current_level = LevelGenerator.create_level(LevelGenerator.LEVELS[(level_number-1)%LevelGenerator.LEVELS.size()])
+		%LevelContainer.add_child(current_level)
+	elif level_scene:
+		print("Loading level ", level_number)
 		current_level = level_scene.instantiate()
+		#current_level.add_child(LevelGenerator.create_level())
 		%LevelContainer.add_child(current_level)
 		level_rect = Rect2(Vector2(0,0), Vector2(1024,1024))
 		#setup_level_rect()
@@ -37,18 +41,18 @@ func load_level(level_number: int):
 
 
 	
-func setup_level_rect():
-	# Wait for the level to be loaded
-	await get_tree().create_timer(0.1).timeout
-	var level = current_level
-	if level:
-		var background = level.get_node("Background")  # Adjust this path as needed
-		if background and background.texture:
-			var texture_size = background.texture.get_size() * background.global_scale
-			var level_position = background.global_position - (texture_size / 2)
-			level_rect = Rect2(level_position, texture_size)
-		else:
-			print("Background or texture not found!")
+#func setup_level_rect():
+	## Wait for the level to be loaded
+	#await get_tree().create_timer(0.1).timeout
+	#var level = current_level
+	#if level:
+		#var background = level.get_node("Background")  # Adjust this path as needed
+		#if background and background.texture:
+			#var texture_size = background.texture.get_size() * background.global_scale
+			#var level_position = background.global_position - (texture_size / 2)
+			#level_rect = Rect2(level_position, texture_size)
+		#else:
+			#print("Background or texture not found!")
 	
 	
 	#var background = level.get_child(0) as Sprite2D
