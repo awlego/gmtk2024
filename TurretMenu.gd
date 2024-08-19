@@ -5,23 +5,45 @@ signal turret_selected(turret_type)
 
 # A list of dictionaries containing the turret type and corresponding sprite path
 var starting_turrets = [
-	{"type": "blood_turret", "sprite_path": "res://assets/T1/Turrets/Blood/BloodShooter.gif"},
-	{"type": "PulseTurret", "sprite_path": "res://assets/T1/Turrets/Pulse/PulseTowerAttack.gif"},
-	{"type": "LightningTurret", "sprite_path": "res://assets/T1/Turrets/Lightning/LightningTower.gif"},
-	{"type": "MagicTower", "sprite_path": "res://assets/T1/Turrets/Magic/MagicTower.gif"},
+	{"type": "blood_turret", "sprite_path": "res://assets/T1/Turrets/Blood/BloodShooter.gif", "stats": Globals.BLOOD_STATS},
+	{"type": "PulseTurret", "sprite_path": "res://assets/T1/Turrets/Pulse/PulseTowerAttack.gif", "stats": Globals.PULSE_STATS},
+	{"type": "LightningTurret", "sprite_path": "res://assets/T1/Turrets/Lightning/LightningTower.gif", "stats": Globals.LIGHTNING_STATS},
+	{"type": "MagicTower", "sprite_path": "res://assets/T1/Turrets/Magic/MagicTower.gif", "stats": Globals.MAGIC_STATS},
+	{"type": "RainbowLensTurret", "sprite_path": "res://assets/T1/Turrets/RainbowLens/RainbowLensTurret.gif", "stats": Globals.RAINBOW_LENS_STATS},
 ]
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var label = Label.new()
-	label.text = "Add Turret"
 	$VBoxContainer.add_theme_constant_override("separation", 24)
-
-	vbox_container.add_child(label)
+	
+	var i = 1
 	for turret in starting_turrets:
-		create_turret_texture_button(turret)
+		var turret_card = create_turret_card(turret)
+		$VBoxContainer.add_child(turret_card)
 
+		var action_name = "select_turret_%s" % str(i)
+		InputMap.add_action(action_name)
+		var event = InputEventKey.new()
+		event.physical_keycode = KEY_0 + i # Assign the key programmatically
+
+		InputMap.action_add_event(action_name, event)
+		i += 1
+		
+	
+
+func create_turret_card(turret: Dictionary):
+		# create a vbox container with the turret cost below each turret button
+		var turret_card = VBoxContainer.new()
+		var turret_button = create_turret_texture_button(turret)
+		var cost_label = create_cost_label(turret)
+		
+		turret_card.add_child(turret_button)
+		turret_card.add_child(cost_label)
+		
+		return turret_card
+
+	
 func _on_tower_button_pressed(tower_type):
 	turret_selected.emit(tower_type)
 
@@ -55,8 +77,14 @@ func create_turret_texture_button(turret):
 	else:
 		button.texture_normal = sprite_frames  # In case it's a regular texture
 
-	vbox_container.add_child(button)
+	return button
+	#vbox_container.add_child(button)
 
+func create_cost_label(turret):
+	var label = Label.new()
+	label.text = "$" + str(turret['stats'].cost)
+	return label
+	#add_child(label)
 
 func _on_turret_button_hover(animated_sprite):
 	# Display hover text or start animation
@@ -75,4 +103,13 @@ func _on_turret_button_hover_exit(animated_sprite):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if Input.is_action_just_pressed("select_turret_1"):
+		turret_selected.emit(starting_turrets[0]['type'])
+	elif Input.is_action_just_pressed("select_turret_2"):
+		turret_selected.emit(starting_turrets[1]['type'])
+	elif Input.is_action_just_pressed("select_turret_3"):
+		turret_selected.emit(starting_turrets[2]['type'])
+	elif Input.is_action_just_pressed("select_turret_4"):
+		turret_selected.emit(starting_turrets[3]['type'])
+	elif Input.is_action_just_pressed("select_turret_5"):
+		turret_selected.emit(starting_turrets[4]['type'])

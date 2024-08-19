@@ -1,0 +1,45 @@
+[gd_scene load_steps=10 format=3 uid="uid://cqr4lj4ri2oq"]
+
+[ext_resource type="Script" path="res://T1/Turrets/RainbowLensTurret.gd" id="1_u4y88"]
+[ext_resource type="Texture2D" uid="uid://b1vb2sp01rqhs" path="res://assets/T1/Turrets/RainbowLens/rainbow-default.png" id="2_278ix"]
+[ext_resource type="Texture2D" uid="uid://dk0mh46gnwhbo" path="res://assets/T1/Turrets/RainbowLens/rainbow-charge1.png" id="3_i4ioe"]
+[ext_resource type="Texture2D" uid="uid://boe7kkeluccp1" path="res://assets/T1/Turrets/RainbowLens/rainbow-charge2.png" id="4_m432q"]
+[ext_resource type="Texture2D" uid="uid://cf0y1yrwuayg8" path="res://assets/T1/Turrets/RainbowLens/rainbow-charge3.png" id="5_wyd8t"]
+[ext_resource type="Texture2D" uid="uid://d264bdqw7nuhm" path="res://assets/T1/Turrets/RainbowLens/rainbow-charge4.png" id="6_8ccen"]
+[ext_resource type="Texture2D" uid="uid://jx7rpc7ylric" path="res://assets/T1/Turrets/RainbowLens/rainbow-charge5.png" id="7_2t8x7"]
+[ext_resource type="Texture2D" uid="uid://dpmg1otcymc2v" path="res://assets/T1/Turrets/RainbowLens/rainbow-shot.png" id="8_lmv2h"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oi8iy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_278ix")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_i4ioe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_m432q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_wyd8t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_8ccen")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_2t8x7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_lmv2h")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
+[node name="Node2D" type="Area2D"]
+script = ExtResource("1_u4y88")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_oi8iy")

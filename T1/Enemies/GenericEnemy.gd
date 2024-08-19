@@ -36,14 +36,16 @@ func die():
 	emit_signal("defeated")
 	#if level:
 		#level.remove_enemy(self)
-	print(Globals.money)
+	#print(Globals.money)
+	Globals.update_bank_ui_ref.call(Globals.money)
 	done()
 
 func end_of_path():
 	#if level:
 		#level.remove_enemy(self)
 	Globals.money -= 1
-	print("You now have ", Globals.money, "$")
+	Globals.update_bank_ui_ref.call(Globals.money)
+	#print("You now have ", Globals.money, "$")
 	done()
 	
 # Movement function (for a simple straight-line movement)

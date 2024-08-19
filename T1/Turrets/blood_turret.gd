@@ -5,7 +5,7 @@ var frame_map = [7,7,8,0,1,2,3,4,5,6]
 # Fire at the target (to be overridden by child classes)
 func fire_at_target(target: Area2D):
 	var p = projectile.instantiate()
-	p.speed = 700
+	p.speed = 900
 	p.damage = turret_data.damage
 	p.target = target
 	add_child(p)

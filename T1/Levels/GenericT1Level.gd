@@ -16,6 +16,7 @@ func register_factory():
 	%EnemyFactory.level = self
 	
 func _ready():
+	scale = Vector2(2, 2)
 	add_to_group("level")
 	#register_factory()
 	

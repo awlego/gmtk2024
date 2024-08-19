@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://durrd57kd2h24"]
+
+[ext_resource type="Script" path="res://T1/Turrets/RainbowLensProjectile.gd" id="1_oefog"]
+[ext_resource type="Texture2D" uid="uid://cok8wfk6gesly" path="res://assets/T1/Turrets/RainbowLens/RainbowLensProjectile.png" id="2_xf8km"]
+
+[node name="RainbowLensProjectile" type="Node2D"]
+script = ExtResource("1_oefog")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_xf8km")

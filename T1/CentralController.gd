@@ -67,7 +67,7 @@ func load_level(level_number: int):
 		#print("Background or texture not found!")
 
 
-func _on_turret_selected(turret_type):
+func _on_turret_selected(turret_type: String):
 	print("Turret selected", turret_type)
 	selected_turret_type = turret_type
 	create_turret_preview()
@@ -151,6 +151,7 @@ func place_turret():
 			turret_instance.global_position = turret_pos.round()  # Optional: snap to grid
 			hide_turret_range(turret_instance)
 			Globals.money -= turret_instance.turret_data.cost
+			Globals.update_bank_ui_ref.call(Globals.money)
 			if Globals.money > 1000*current_level_int:
 				load_level(current_level_int + 1)
 			turret_instance = null  # Clear the instance after placement
