@@ -42,8 +42,8 @@ func init_tower_stats():
 	MAGIC_STATS.range = 150
 	MAGIC_STATS.cost = 15
 	
-	RAINBOW_LENS_STATS.damage = 50
-	RAINBOW_LENS_STATS.cooldown = 2
+	RAINBOW_LENS_STATS.damage = 100
+	RAINBOW_LENS_STATS.cooldown = 4
 	RAINBOW_LENS_STATS.range = 500
 	RAINBOW_LENS_STATS.cost = 30
 
