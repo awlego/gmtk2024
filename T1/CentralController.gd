@@ -63,7 +63,7 @@ func setup_level_rect():
 		#print("Background or texture not found!")
 
 
-func _on_turret_selected(turret_type):
+func _on_turret_selected(turret_type: String):
 	print("Turret selected", turret_type)
 	selected_turret_type = turret_type
 	create_turret_preview()
