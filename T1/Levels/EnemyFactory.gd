@@ -2,21 +2,28 @@ extends Node
 
 class_name EnemyFactory
 
+var rate = 2.0
+var timer = 0.5
+var scale_amount = 0.1
+var scale_cooldown = 3.0
+var scaler_timer = 1.0
 #var level: GenericT1Level
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var spawn_timer = Timer.new()
-	spawn_timer.set_wait_time(0.5)  # Spawn every 2 seconds
-	spawn_timer.set_one_shot(false)  # Repeat
-	spawn_timer.connect("timeout", delayed_create)
-	spawn_timer.autostart = true
-	add_child(spawn_timer)
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	timer -= delta
+	while timer < 0:
+		delayed_create()
+		timer += 1.0/rate
+	scaler_timer -= delta
+	if scaler_timer < 0:
+		scaler_timer += scale_cooldown
+		rate += scale_amount
+
 
 @export var enemy_scene = preload("res://T1/Enemies/BasicEnemy.tscn") # The generic enemy scene
 @export var geometro_scene = preload("res://T1/Enemies/geometro_enemy.tscn")

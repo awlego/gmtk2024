@@ -123,11 +123,16 @@ class DrawingNode:
 	
 	func _draw():
 		draw_circle(Vector2.ZERO, radius, color)
-
-func _on_level_clicked(viewport, event, shape_idx):
-	if event is InputEventMouseButton and event.pressed:
-		if event.button_index == MOUSE_BUTTON_LEFT:
-			place_turret()
+#
+#func _on_level_clicked(viewport, event, shape_idx):
+	#if event is InputEventMouseButton and event.pressed:
+		#print(event.button_index)
+		#if event.button_index == MOUSE_BUTTON_LEFT:
+			#place_turret()
+		#if event.button_index == MOUSE_BUTTON_RIGHT:
+			#turret_instance.queue_free()
+			#turret_instance = null
+			#
 
 
 func place_turret():
@@ -147,7 +152,7 @@ func place_turret():
 		if level_rect.has_point(turret_pos) and turret_instance.get_overlapping_areas().size() == 0:
 			#turret_instance.reparent(level)
 			turret_instance.real_tower = true
-			turret_instance.z_index = 0
+			turret_instance.z_index = Globals.Z_TURRET
 			turret_instance.global_position = turret_pos.round()  # Optional: snap to grid
 			hide_turret_range(turret_instance)
 			Globals.money -= turret_instance.turret_data.cost
@@ -168,7 +173,7 @@ func valid_location(turret_instance):
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if turret_instance:
+	if turret_instance and is_instance_valid(turret_instance):
 		turret_instance.global_position = get_global_mouse_position()
 		
 		if valid_location(turret_instance):
