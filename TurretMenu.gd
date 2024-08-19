@@ -15,11 +15,8 @@ var starting_turrets = [
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var label = Label.new()
-	label.text = "Add Turret"
 	$VBoxContainer.add_theme_constant_override("separation", 24)
-
-	vbox_container.add_child(label)
+	
 	var i = 1
 	for turret in starting_turrets:
 		var turret_card = create_turret_card(turret)

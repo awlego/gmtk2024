@@ -113,6 +113,7 @@ func init_faerie_stats():
 # Current active scene reference
 var current_scene: Node = null
 
+var update_bank_ui_ref = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

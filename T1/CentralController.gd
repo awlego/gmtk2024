@@ -147,6 +147,7 @@ func place_turret():
 			turret_instance.global_position = turret_pos.round()  # Optional: snap to grid
 			hide_turret_range(turret_instance)
 			Globals.money -= turret_instance.turret_data.cost
+			Globals.update_bank_ui_ref.call(Globals.money)
 			if Globals.money > 1000*current_level_int:
 				load_level(current_level_int + 1)
 			turret_instance = null  # Clear the instance after placement
