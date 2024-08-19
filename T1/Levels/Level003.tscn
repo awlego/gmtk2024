@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://iqdo7hhpinxc"]
+
+[ext_resource type="Script" path="res://T1/Levels/GenericT1Level.gd" id="1_w0xhd"]
+[ext_resource type="Texture2D" uid="uid://bsuuq4bgbkq5u" path="res://assets/T1/Levels/Level3/snow-level.png" id="2_5o7fw"]
+[ext_resource type="Script" path="res://T1/Levels/EnemyFactory.gd" id="3_1bjd4"]
+
+[sub_resource type="Curve2D" id="Curve2D_tyscr"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -1, 510, 0, 0, 0, 0, 512, 1)
+}
+point_count = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qpvxi"]
+size = Vector2(32, 725.052)
+
+[node name="Level003" type="Node2D"]
+script = ExtResource("1_w0xhd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("2_5o7fw")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_tyscr")
+metadata/_edit_lock_ = true
+
+[node name="EnemyFactory" type="Node" parent="Path2D"]
+unique_name_in_owner = true
+script = ExtResource("3_1bjd4")
+
+[node name="Path" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Path"]
+position = Vector2(255.344, 254.656)
+rotation = 0.785398
+shape = SubResource("RectangleShape2D_qpvxi")
