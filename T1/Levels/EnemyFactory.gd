@@ -9,7 +9,7 @@ func _ready():
 	var spawn_timer = Timer.new()
 	spawn_timer.set_wait_time(0.5)  # Spawn every 2 seconds
 	spawn_timer.set_one_shot(false)  # Repeat
-	spawn_timer.connect("timeout", create_enemy)
+	spawn_timer.connect("timeout", delayed_create)
 	spawn_timer.autostart = true
 	add_child(spawn_timer)
 	pass # Replace with function body.
@@ -24,6 +24,14 @@ func _process(delta):
 
 #@export var sprite_directory: String = "res://sprites/enemies/" # Directory where enemy sprites are stored
 
+func delayed_create(min = 0, max = 0.2):
+	var s = Timer.new()
+	s.wait_time = randf_range(min, max)
+	s.one_shot = true
+	s.connect("timeout", create_enemy)
+	s.autostart = true
+	add_child(s)
+	
 # Function to create an enemy
 func create_enemy():
 	# Instantiate the generic enemy scene

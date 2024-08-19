@@ -7,6 +7,8 @@ var scale_rate
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	collision_layer = Globals.ATTACK_LAYER
+	collision_mask = Globals.ENEMY_LAYER
 	super._ready()
 
 

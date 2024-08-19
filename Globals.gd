@@ -9,13 +9,18 @@ const PATH_LAYER = 0b00000000_00000000_00000000_000001000
 
 const TOWER_MASK = TOWER_LAYER + PATH_LAYER
 
+# Z-Axis
+const Z_TURRET = 90
+const Z_ENEMY = 100
+const Z_ATTACK = 110
+
 # Tower Stats
 # TurretResource(DAMAGE, COOLDOWN, RANGE, COST)
 var BLOOD_STATS = TurretResource.new()
 var PULSE_STATS = TurretResource.new()
 var LIGHTNING_STATS = TurretResource.new()
 var MAGIC_STATS = TurretResource.new()
-func _init():
+func init_tower_stats():
 	BLOOD_STATS.damage = 15
 	BLOOD_STATS.cooldown = 0.5
 	BLOOD_STATS.range = 300
@@ -31,9 +36,9 @@ func _init():
 	LIGHTNING_STATS.range = 250
 	LIGHTNING_STATS.cost = 15
 	
-	MAGIC_STATS.damage = 10
-	MAGIC_STATS.cooldown = 1.5
-	MAGIC_STATS.range = 100
+	MAGIC_STATS.damage = 5
+	MAGIC_STATS.cooldown = 2
+	MAGIC_STATS.range = 150
 	MAGIC_STATS.cost = 15
 
 var money = 100
@@ -84,4 +89,5 @@ func switch_scene(scene_name: String) -> void:
 	else:
 		print("Scene not found: " + scene_name)
 
-# Make the script globally accessible by adding it to the autoload list in Project Settings -> AutoLoad
+func _init():
+	init_tower_stats()

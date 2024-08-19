@@ -15,6 +15,7 @@ func _ready():
 	add_to_group("enemy")
 	health = enemy_data.health
 	get_parent().loop = false
+	z_index = Globals.Z_ENEMY
 	pass # Initialization code here
 
 func done():

@@ -17,6 +17,7 @@ func draw_lightning_segment(pos, rot, scale = 1):
 	sprite.sprite_frames = lightning
 	sprite.animation = "gif"
 	sprite.frame = randi_range(0, 16)
+	sprite.z_index = Globals.Z_ATTACK - 1
 	add_child(node)
 	node.add_child(sprite)
 	sprite.position = Vector2(8, 0)

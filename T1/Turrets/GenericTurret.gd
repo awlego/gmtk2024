@@ -27,14 +27,13 @@ var current_target: GenericEnemy = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	#super()
-	#cooldown = turret_data.cooldown
 	collision_layer = Globals.TOWER_LAYER
 	collision_mask = Globals.TOWER_MASK
 	var collisionNode = CollisionShape2D.new()
 	var rect = RectangleShape2D.new()
 	rect.size = Vector2(15, 15)
 	collisionNode.shape = rect
+	z_index = Globals.Z_TURRET
 	add_child(collisionNode)
 
 # Detect enemies within range
