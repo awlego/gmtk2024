@@ -41,6 +41,8 @@ func die():
 func end_of_path():
 	#if level:
 		#level.remove_enemy(self)
+	Globals.money -= 1
+	print("You now have ", Globals.money, "$")
 	done()
 	
 # Movement function (for a simple straight-line movement)

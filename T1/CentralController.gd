@@ -1,22 +1,62 @@
+# CentralController.gd
 extends Control
 
 @onready var menu = $"../Control2/TurretMenu"
-@onready var level = $"../Control/Level001"
+#@onready var level = $"../Control/Level001"
+@onready var level_manager = $"../../"
 var selected_turret_type : String = ""
 var turret_instance : Node2D = null
 var level_rect : Rect2
+var current_level: Node = null
+var current_level_int: int = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	menu.connect("turret_selected", Callable(self, "_on_turret_selected"))
+	load_level(001)
+	#level_rect = Rect2(Vector2(0,0), Vector2(1024,1024))
 
-	level_rect = Rect2(Vector2(0,0), Vector2(1024,1024))
+
+func load_level(level_number: int):
+	print("Loading level", level_number)
+	current_level_int = level_number
+
+	print("Loading level", level_number)
+	if current_level:
+		current_level.queue_free()
+	
+	var level_scene = load("res://T1/Levels/Level%03d.tscn" % level_number)
+	if level_scene:
+		print("Loading level", level_number)
+		current_level = level_scene.instantiate()
+		%LevelContainer.add_child(current_level)
+		level_rect = Rect2(Vector2(0,0), Vector2(1024,1024))
+		#setup_level_rect()
+	else:
+		print("Failed to load level %d" % level_number)
+
+
+	
+func setup_level_rect():
+	# Wait for the level to be loaded
+	await get_tree().create_timer(0.1).timeout
+	var level = current_level
+	if level:
+		var background = level.get_node("Background")  # Adjust this path as needed
+		if background and background.texture:
+			var texture_size = background.texture.get_size() * background.global_scale
+			var level_position = background.global_position - (texture_size / 2)
+			level_rect = Rect2(level_position, texture_size)
+		else:
+			print("Background or texture not found!")
+	
+	
 	#var background = level.get_child(0) as Sprite2D
-#
+
 	#if background and background.texture:
 		#var texture_size = background.texture.get_size() * background.global_scale
 		#var level_position = background.global_position - (texture_size / 2)
-#
+
 		## Calculate and cache the level's boundary rectangle
 		#level_rect = Rect2(level_position, texture_size)
 	#else:
@@ -107,11 +147,16 @@ func place_turret():
 			turret_instance.global_position = turret_pos.round()  # Optional: snap to grid
 			hide_turret_range(turret_instance)
 			Globals.money -= turret_instance.turret_data.cost
+			if Globals.money > 1000*current_level_int:
+				load_level(current_level_int + 1)
 			turret_instance = null  # Clear the instance after placement
 		else:
 			print("Invalid placement location!")
 		#else:
 			#print("Background or texture not found!")
+
+func level_int_to_zeros(level_num):
+	level_num
 
 func valid_location(turret_instance):
 	return level_rect.has_point(turret_instance.global_position) and turret_instance.get_overlapping_areas().size() == 0

@@ -63,6 +63,12 @@ func _ready():
 func _process(delta):
 	pass
 
+func change_level(level_number: int):
+	var level_manager = get_tree().get_first_node_in_group("level_manager")
+	if level_manager:
+		level_manager.load_level(level_number)
+	else:
+		print("Level manager not found!")
 
 # Function to switch scenes
 func switch_scene(scene_name: String) -> void:

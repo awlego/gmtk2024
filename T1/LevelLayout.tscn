@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://eqevggqh2d01"]
 
-[ext_resource type="PackedScene" uid="uid://dufkxsdexhece" path="res://T1/Levels/Level002.tscn" id="2_1gu4i"]
+[ext_resource type="Script" path="res://T1/LevelContainer.gd" id="2_6ovf4"]
 [ext_resource type="PackedScene" uid="uid://c6gbj0863kl1r" path="res://Turret_Menu/turret_menu.tscn" id="2_rliuk"]
 [ext_resource type="Script" path="res://T1/CentralController.gd" id="3_4un1d"]
 
@@ -9,6 +9,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("2_6ovf4")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 0
@@ -19,11 +20,10 @@ offset_bottom = 40.0
 layout_mode = 2
 script = ExtResource("3_4un1d")
 
-[node name="Control" type="Control" parent="HBoxContainer"]
+[node name="LevelContainer" type="Control" parent="HBoxContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(1024, 1024)
 layout_mode = 2
-
-[node name="Level002" parent="HBoxContainer/Control" instance=ExtResource("2_1gu4i")]
 
 [node name="Control2" type="Control" parent="HBoxContainer"]
 layout_mode = 2

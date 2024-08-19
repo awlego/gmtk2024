@@ -24,7 +24,7 @@ func _process(delta):
 
 #@export var sprite_directory: String = "res://sprites/enemies/" # Directory where enemy sprites are stored
 
-func delayed_create(min = 0, max = 0.2):
+func delayed_create(min = 0, max = 4):
 	var s = Timer.new()
 	s.wait_time = randf_range(min, max)
 	s.one_shot = true
