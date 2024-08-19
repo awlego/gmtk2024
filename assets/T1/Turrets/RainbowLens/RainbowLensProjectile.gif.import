@@ -1,0 +1,15 @@
+[remap]
+
+importer="import_gif_to_sprite_frames"
+type="SpriteFrames"
+uid="uid://6r3n8om8c0hh"
+path="res://.godot/imported/RainbowLensProjectile.gif-ca98d58514bb54ec1ec9e84fb0735162.tres"
+
+[deps]
+
+source_file="res://assets/T1/Turrets/RainbowLens/RainbowLensProjectile.gif"
+dest_files=["res://.godot/imported/RainbowLensProjectile.gif-ca98d58514bb54ec1ec9e84fb0735162.tres"]
+
+[params]
+
+frames_per_second=30

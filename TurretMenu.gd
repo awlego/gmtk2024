@@ -9,6 +9,7 @@ var starting_turrets = [
 	{"type": "PulseTurret", "sprite_path": "res://assets/T1/Turrets/Pulse/PulseTowerAttack.gif"},
 	{"type": "LightningTurret", "sprite_path": "res://assets/T1/Turrets/Lightning/LightningTower.gif"},
 	{"type": "MagicTower", "sprite_path": "res://assets/T1/Turrets/Magic/MagicTower.gif"},
+	{"type": "RainbowLensTurret", "sprite_path": "res://assets/T1/Turrets/RainbowLens/RainbowLensTurret.gif"},
 ]
 
 
