@@ -4,13 +4,6 @@ extends Node2D
 var number_images = {}
 var dummy_money = 0
 var prev_money = 0
-var digits = [
-	$ones_digit,
-	$tens_digit,
-	$hundreds_digit,
-	$thousands_digit,
-	$ten_thousands_digit
-]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
