@@ -133,6 +133,12 @@ var username: String = ""
 func _ready():
 	username = generate_username()
 
+func reset():
+	health = 100
+	money = 100
+	towers_placed_stats = {}
+	
+
 	pass # Replace with function body.
 
 

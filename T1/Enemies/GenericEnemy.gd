@@ -10,6 +10,8 @@ var slow = 1.0
 var health_mod = 1.0
 var slowed: bool = false
 
+@onready var game_over_scene_path = "res://game_over.tscn"
+
 # Signal emitted when the enemy is defeated
 signal defeated
 
@@ -46,6 +48,9 @@ func die():
 
 func game_over():
 	print("You Lost")
+	get_tree().change_scene_to_file(game_over_scene_path)
+
+
 
 func end_of_path():
 	#if level:
