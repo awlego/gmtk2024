@@ -64,6 +64,8 @@ func load_level(level_number: int):
 	else:
 		print("Failed to load level %d" % level_number)
 
+	Analytics.add_event("Level loaded", {"level": level_number})
+
 
 	
 #func setup_level_rect():
@@ -96,6 +98,10 @@ func _on_turret_selected(turret_type: String):
 	print("Turret selected", turret_type)
 	selected_turret_type = turret_type
 	create_turret_preview()
+	if Globals.towers_placed_stats.has(turret_type):
+		Globals.towers_placed_stats[turret_type] += 1
+	else:
+		Globals.towers_placed_stats[turret_type] = 1	
 
 
 func create_turret_preview():
@@ -215,18 +221,13 @@ func _process(delta):
 	if Input.is_action_just_pressed("save_highscore"):
 		var score: float = float(Globals.money)
 		var nickname: String = str(Globals.username)
-		var metadata: Dictionary = {}
-		var timestamp = Time.get_datetime_string_from_system()
-		var automatically_retry = true
+		var metadata: Dictionary = Globals.towers_placed_stats
 
 		print()
 		print("Saving Highscore:")
 		print("Nickname: %s" % nickname)
 		print("Score: %s" % score)
-		print("Timestamp: %s" % timestamp)
-		print("Metadata: %s" % metadata)
-		print("Automatically Retry: %s" % str(automatically_retry))
 		print()
-		await Leaderboards.post_guest_score(Globals.leaderboard_id, score, nickname)
-		#await Leaderboards.post_guest_score(Globals.leaderboard_id, score, nickname, metadata, timestamp, automatically_retry)
+		await Leaderboards.post_guest_score(Globals.leaderboard_id, score, nickname, metadata)
+
 

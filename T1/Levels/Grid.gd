@@ -45,5 +45,6 @@ func place_tower(tower_scene: PackedScene, world_position: Vector2):
 		tower.position = grid_to_world(grid_position)
 		add_child(tower)
 		grid_data[grid_position.x][grid_position.y] = true
+		print(tower.name)
 		return true
 	return false

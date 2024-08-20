@@ -130,6 +130,7 @@ var username: String = ""
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	username = generate_username()
+
 	pass # Replace with function body.
 
 
@@ -193,7 +194,9 @@ func generate_username() -> String:
 
 	return username
 
-	
+var towers_placed_stats = {}
+
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass

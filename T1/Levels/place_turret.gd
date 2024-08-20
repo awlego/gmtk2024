@@ -22,6 +22,7 @@ func _on_turret_selected(turret_type):
 	range_indicator_node.shape = range_indicator
 	range_indicator_node.name = "RangeIndicator"
 	turret_preview.add_child(range_indicator_node)
+	
 
 func _process(delta):
 	if turret_preview:
