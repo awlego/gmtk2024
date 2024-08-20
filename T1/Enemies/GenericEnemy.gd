@@ -67,9 +67,24 @@ func walk(delta):
 		end_of_path()
 		
 		
+func find_sprite():
+	"""goes through the children of the enemy and looks for either a Sprite2D or AnimatedSprite2D
+	then returns that node by reference"""
+	for child in get_children():
+		if child is Sprite2D or child is AnimatedSprite2D:
+			return child
+	return null
+		
 func apply_slow(slow_amount):
-	print("applied slow")
 	var old_speed = speed_mod
 	speed_mod *= slow_amount
+	slowed = true
+	var frost_shader := ShaderMaterial.new()
+	frost_shader.shader = load("res://shaders/chilled.gdshader")
+	var sprite = find_sprite()
+	sprite.material = frost_shader
+	sprite.material.set_shader_parameter("enabled", true)
 	await get_tree().create_timer(1.8).timeout
 	speed_mod = old_speed
+	slowed = false
+	sprite.material.set_shader_parameter("enabled", false)
