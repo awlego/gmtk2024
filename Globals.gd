@@ -150,29 +150,34 @@ func generate_username() -> String:
 	"Spiff", "Snazz", "Whizz", "Blinky", "Squib", "Drift", "Wubsy", "Twirl", "Pinky", "Twerp",
 	"Spunk", "Sniff", "Snort", "Flink", "Snubb", "Squirt", "Fizzy", "Wizzy", "Smirk", "Swoop"
 ]
-	var suffixes = [
-	"Pants", "Noodle", "Sprout", "Muffin", "Bumble", "Doodle", "Sniff", "Twirl", "Fluff", "Munch",
-	"Zappy", "Blitz", "Spork", "Swoop", "Twerp", "Ploop", "Chirp", "Thunk", "Squish", "Wacky",
-	"Fluke", "Snark", "Twist", "Plunk", "Wobble", "Doodle", "Smush", "Sniff", "Munch", "Thunk",
-	"Blurt", "Squib", "Twist", "Clomp", "Bliss", "Whiff", "Zippy", "Ploop", "Tizzy", "Froop",
-	"Snort", "Borky", "Waggy", "Fluff", "Skimp", "Twink", "Nudge", "Clink", "Thump", "Drift",
-	"Snuff", "Fritz", "Squib", "Spork", "Pinky", "Tweak", "Nudge", "Slink", "Thump", "Glint",
-	"Squid", "Plink", "Whump", "Thump", "Squat", "Gloop", "Swoop", "Crimp", "Plunk", "Wubsy",
-	"Thrum", "Smirk", "Froop", "Blinky", "Tweak", "Twink", "Swoosh", "Plonk", "Tizzy", "Wifty",
-	"Ploop", "Sniff", "Pants", "Munch", "Twirl", "Dorky", "Thunk", "Snuff", "Flick", "Squib",
-	"Thunk", "Snork", "Whizz", "Drift", "Thrum", "Whomp", "Tizzy", "Clump", "Nifty", "Squirt",
-	"Flick", "Squee", "Glimp", "Tweak", "Wibble", "Plonk", "Squat", "Thunk", "Snork", "Squat",
-	"Munch", "Thunk", "Plink", "Wifty", "Whomp", "Thunk", "Froop", "Sniff", "Smirk", "Squee",
-	"Twirl", "Spork", "Twink", "Bloop", "Thunk", "Squib", "Clomp", "Plink", "Thrum", "Squeek",
-	"Snook", "Smirk", "Squib", "Ploop", "Thump", "Squat", "Gloop", "Twirl", "Spork", "Munch",
-	"Plunk", "Thrum", "Squib", "Thunk", "Tweak", "Squat", "Smirk", "Twirl", "Wifty", "Squirt",
-	"Twink", "Sniff", "Pants", "Wifty", "Snark", "Thunk", "Flick", "Wobble", "Froop", "Squib",
-	"Thunk", "Wifty", "Whomp", "Ploop", "Twist", "Thunk", "Gloop", "Thunk", "Twirl", "Fritz"
+	var animalSuffixes = [
+  "Ant", "Bat", "Bee", "Cat", "Dog", "Eel", "Fox", "Owl", "Rat", "Yak",
+  "Ape", "Asp", "Cod", "Cow", "Cub", "Doe", "Elk", "Emu", "Fin", "Hen",
+  "Ibis", "Jade", "Kiwi", "Lynx", "Mole", "Mink", "Newt", "Orca", "Puma", "Quail",
+  "Rook", "Shrew", "Slug", "Snail", "Swan", "Toad", "Wolf", "Wren", "Zebra", "Bison",
+  "Crab", "Duck", "Fawn", "Frog", "Gull", "Hawk", "Lion", "Lamb", "Moth", "Mule",
+  "Otter", "Oxen", "Panda", "Prawn", "Robin", "Shark", "Squid", "Tiger", "Trout", "Tuna",
+  "Viper", "Whale", "Worm", "Bunny", "Camel", "Gecko", "Heron", "Horse", "Koala", "Lemur",
+  "Moose", "Mouse", "Nanny", "Narwhal", "Parrot", "Peacock", "Penguin", "Pelican", "Pigeon", "Piglet",
+  "Rabbit", "Raptor", "Raven", "Roach", "Scarab", "Seahorse", "Sheep", "Shrimp", "Skunk", "Sparrow",
+  "Spider", "Sprat", "Stork", "Swine", "Tamarin", "Tarantula", "Termite", "Tern", "Thrush", "Tigress",
+  "Tortoise", "Turtle", "Vulture", "Wallaby", "Weasel", "Whippet", "Wolverine", "Wombat", "Yeti", "Zebu",
+  "Asp", "Bass", "Boar", "Buffalo", "Bug", "Buzzard", "Carp", "Civet", "Cobra", "Conch",
+  "Coot", "Crow", "Deer", "Dingo", "Dormouse", "Dove", "Egret", "Finch", "Flamingo", "Flea",
+  "Fly", "Gibbon", "Gnat", "Goat", "Gopher", "Grouse", "Grub", "Guinea", "Heron", "Ibex",
+  "Jackal", "Jaguar", "Jay", "Kingfisher", "Kitten", "Llama", "Lobster", "Maggot", "Marmoset", "Meerkat",
+  "Minnow", "Mole", "Mongoose", "Monkey", "Moth", "Newt", "Nuthatch", "Ocelot", "Octopus", "Opossum",
+  "Orangutan", "Oriole", "Otter", "Pheasant", "Pig", "Pika", "Pigeon", "Piranha", "Platypus", "Porcupine",
+  "Quokka", "Quoll", "Raccoon", "Ram", "Reindeer", "Roach", "Rooster", "Salmon", "Sandpiper", "Scorpion",
+  "Seal", "Shrew", "Slug", "Snipe", "Sparrow", "Sphinx", "Squab", "Starling", "Stoat", "Swan",
+  "Tapir", "Termite", "Tetra", "Thrasher", "Thrush", "Tick", "Toad", "Turkey", "Vervet", "Vole",
+  "Wagtail", "Walrus", "Warthog", "Wasp", "Wolverine", "Woodpecker", "Yak", "Zebu", "Zonkey", "Zorse"
 ]
+
 
 	# Combine a random prefix, middle, and suffix
 	var prefix = prefixes[randi() % prefixes.size()]
-	var suffix = suffixes[randi() % suffixes.size()]
+	var suffix = animalSuffixes[randi() % animalSuffixes.size()]
 	var num = randi_range(0, 1000)
 
 	# Combine them to form the username
