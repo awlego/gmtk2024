@@ -21,5 +21,5 @@ func _process(delta):
 
 
 func _on_button_pressed():
-	
-	pass # Replace with function body.
+	Globals.reset()
+	get_tree().change_scene_to_file("res://T1/LevelLayout.tscn")
