@@ -190,7 +190,7 @@ func _process(delta):
 			
 	if Input.is_action_just_pressed("save_highscore"):
 		var score: float = float(Globals.money)
-		var nickname: String = "awlego"
+		var nickname: String = str(Globals.username)
 		var metadata: Dictionary = {}
 		var timestamp = Time.get_datetime_string_from_system()
 		var automatically_retry = true

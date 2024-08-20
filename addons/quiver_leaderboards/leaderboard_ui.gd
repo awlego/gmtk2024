@@ -37,6 +37,7 @@ extends Control
 
 
 func _ready() -> void:
+	leaderboard_id = Globals.leaderboard_id
 	score_list.set_column_expand_ratio(1, 3)
 	var column_names := ["Rank", "Name", "Score"]
 	for column_index in range(column_names.size()):

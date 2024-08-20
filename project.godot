@@ -41,6 +41,8 @@ enabled=PackedStringArray("res://addons/quiver_analytics/plugin.cfg", "res://add
 [quiver]
 
 general/auth_token="cLkIqDLlEdwTUyVEYra5Xu1si0cRfX3xKLWpADyK"
+analytics/auto_add_event_on_launch=false
+analytics/auto_add_event_on_quit=false
 
 [rendering]
 
