@@ -3,28 +3,17 @@ extends Node2D
 class_name GenericT1Level
 
 @export var level_data: T1LevelResource
-var enemies = {}
-# Called when the node enters the scene tree for the first time.
-
-func add_enemy(enemy):
-	enemies[enemy] = true
-
-func remove_enemy(enemy):
-	enemies.erase(enemy)
-	
-func register_factory():
-	%EnemyFactory.level = self
+var enemies = []
 	
 func _ready():
 	scale = Vector2(2, 2)
 	add_to_group("level")
-	#register_factory()
-	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
-
+	enemies = get_tree().get_nodes_in_group("enemy")
+	enemies.sort_custom(func(e1, e2): return e1.get_parent().progress_ratio > e2.get_parent().progress_ratio)
+	
 func _input(event):
 	if event is InputEventMouseButton and event.pressed:
 		if event.button_index == MOUSE_BUTTON_LEFT:

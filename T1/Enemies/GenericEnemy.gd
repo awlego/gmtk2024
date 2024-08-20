@@ -24,10 +24,12 @@ func done():
 	get_parent().queue_free()
 
 # Function to apply damage to the enemy
-func apply_damage(amount: int):
+func apply_damage(amount: int) -> bool:
 	health -= amount
 	if health <= 0:
 		die()
+		return true
+	return false
 
 # Function called when the enemy is defeated
 func die():

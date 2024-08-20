@@ -19,7 +19,9 @@ func _process(delta):
 	var delta_pos = speed * delta
 	if delta_pos >= global_position.distance_to(target.global_position):
 		global_position = target.global_position
-		target.apply_damage(damage)
+		if target.apply_damage(damage):
+			if is_instance_valid(get_parent()) and get_parent().has_method("_on_kill"):
+				get_parent()._on_kill()
 		queue_free()
 	else:
 		global_position += global_position.direction_to(target.global_position) * delta_pos

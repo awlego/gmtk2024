@@ -12,7 +12,7 @@ script = ExtResource("1_8j63t")
 unique_name_in_owner = true
 sprite_frames = ExtResource("2_tn0xi")
 animation = &"gif"
-frame_progress = 0.379181
+frame_progress = 0.967345
 
 [node name="AreaAttack" type="Area2D" parent="."]
 unique_name_in_owner = true

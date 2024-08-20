@@ -13,6 +13,7 @@ const TOWER_MASK = TOWER_LAYER + PATH_LAYER
 const Z_TURRET = 90
 const Z_ENEMY = 100
 const Z_ATTACK = 110
+const Z_GUI = 200
 
 # Tower Stats
 # TurretResource(DAMAGE, COOLDOWN, RANGE, COST)

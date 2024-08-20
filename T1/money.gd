@@ -7,6 +7,8 @@ var prev_money = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	z_as_relative = false
+	z_index = Globals.Z_GUI
 	Globals.update_bank_ui_ref = Callable(self, "update_bank_ui")
 	for i in range(0, 10):
 		number_images[i] = load(num_img_path % i)

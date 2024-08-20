@@ -144,6 +144,7 @@ class DrawingNode:
 
 func place_turret():
 	if turret_instance:
+		if is_instance_valid(turret_instance):
 		# Get the background node (assumed to be the first child of level)
 		#var background = level.get_child(0) as Sprite2D
 		#
@@ -155,20 +156,22 @@ func place_turret():
 			#var level_rect = Rect2(level_position, level_size)
 
 			# Check if the turret's position is within the level's bounds
-		var turret_pos = turret_instance.global_position
-		if level_rect.has_point(turret_pos) and turret_instance.get_overlapping_areas().size() == 0:
-			#turret_instance.reparent(level)
-			turret_instance.real_tower = true
-			turret_instance.z_index = Globals.Z_TURRET
-			turret_instance.global_position = turret_pos.round()  # Optional: snap to grid
-			hide_turret_range(turret_instance)
-			Globals.money -= turret_instance.turret_data.cost
-			Globals.update_bank_ui_ref.call(Globals.money)
-			if Globals.money > 1000*current_level_int:
-				load_level(current_level_int + 1)
-			turret_instance = null  # Clear the instance after placement
+			var turret_pos = turret_instance.global_position
+			if level_rect.has_point(turret_pos) and turret_instance.get_overlapping_areas().size() == 0:
+				#turret_instance.reparent(level)
+				turret_instance.real_tower = true
+				turret_instance.z_index = Globals.Z_TURRET
+				turret_instance.global_position = turret_pos.round()  # Optional: snap to grid
+				hide_turret_range(turret_instance)
+				Globals.money -= turret_instance.turret_data.cost
+				Globals.update_bank_ui_ref.call(Globals.money)
+				if Globals.money > 1000*current_level_int:
+					load_level(current_level_int + 1)
+				turret_instance = null  # Clear the instance after placement
+			else:
+				print("Invalid placement location!")
 		else:
-			print("Invalid placement location!")
+			turret_instance = null
 		#else:
 			#print("Background or texture not found!")
 
@@ -180,13 +183,16 @@ func valid_location(turret_instance):
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if turret_instance and is_instance_valid(turret_instance):
-		turret_instance.global_position = get_global_mouse_position()
+	if turret_instance:
+		if is_instance_valid(turret_instance):
+			turret_instance.global_position = get_global_mouse_position()
 		
-		if valid_location(turret_instance):
-			turret_instance.modulate = Color(1, 1, 1, 1)  # Normal appearance (valid placement)
+			if valid_location(turret_instance):
+				turret_instance.modulate = Color(1, 1, 1, 1)  # Normal appearance (valid placement)
+			else:
+				turret_instance.modulate = Color(1, 0, 0, 0.5)  # Red and semi-transparent (invalid placement)
 		else:
-			turret_instance.modulate = Color(1, 0, 0, 0.5)  # Red and semi-transparent (invalid placement)
+			turret_instance = null
 			
 	if Input.is_action_just_pressed("save_highscore"):
 		var score: float = float(Globals.money)
@@ -205,3 +211,4 @@ func _process(delta):
 		print()
 		await Leaderboards.post_guest_score(Globals.leaderboard_id, score, nickname)
 		#await Leaderboards.post_guest_score(Globals.leaderboard_id, score, nickname, metadata, timestamp, automatically_retry)
+
