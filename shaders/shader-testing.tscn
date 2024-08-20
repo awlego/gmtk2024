@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bmr2v6l51psu7"]
+
+[ext_resource type="Shader" path="res://shaders/chilled.gdshader" id="1_h2qmy"]
+[ext_resource type="Texture2D" uid="uid://0q576bumt6l0" path="res://assets/T1/Enemies/p1_front.png" id="2_noep1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5f6ao"]
+shader = ExtResource("1_h2qmy")
+shader_parameter/enabled = true
+shader_parameter/outline_color = Color(0.5, 0.8, 1, 1)
+shader_parameter/outline_thickness = 1.0
+shader_parameter/glow_strength = 1.0
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_5f6ao")
+position = Vector2(344, 273)
+scale = Vector2(4, 4)
+texture = ExtResource("2_noep1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

@@ -6,7 +6,9 @@ class_name GenericEnemy
 #var level: GenericT1Level
 var health = 100
 var speed_mod = 1.0
+var slow = 1.0
 var health_mod = 1.0
+var slowed: bool = false
 
 # Signal emitted when the enemy is defeated
 signal defeated
@@ -58,9 +60,32 @@ func move_towards(target_position: Vector2, delta: float):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	walk(delta)
-	pass
+	if (slow < 1.0) != slowed:
+		slowed = (slow < 1.0)
+		apply_frost_effect(slowed)
 
 func walk(delta):
-	get_parent().progress += enemy_data.speed * delta * speed_mod
+	get_parent().progress += enemy_data.speed * delta * speed_mod * max(.2, slow)
 	if get_parent().progress_ratio == 1.0:
 		end_of_path()
+		
+		
+func find_sprite():
+	"""goes through the children of the enemy and looks for either a Sprite2D or AnimatedSprite2D
+	then returns that node by reference"""
+	for child in get_children():
+		if child is Sprite2D or child is AnimatedSprite2D:
+			return child
+	return null
+		
+func apply_slow(slow_amount):
+	slow *= slow_amount
+	await get_tree().create_timer(1.8).timeout
+	slow /= slow_amount
+
+func apply_frost_effect(on = true):
+	var frost_shader := ShaderMaterial.new()
+	frost_shader.shader = load("res://shaders/chilled.gdshader")
+	var sprite = find_sprite()
+	sprite.material = frost_shader
+	sprite.material.set_shader_parameter("enabled", on)

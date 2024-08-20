@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://da5it8p3lelt8"]
+
+[ext_resource type="Script" path="res://T1/Turrets/SnowAttack.gd" id="1_vhrcc"]
+[ext_resource type="Texture2D" uid="uid://71gu33x6gvg8" path="res://assets/T1/Turrets/Snow/SnowProjectile.png" id="2_llca6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qfaxt"]
+
+[node name="SnowAttack" type="Area2D"]
+scale = Vector2(0.5, 0.5)
+collision_layer = 0
+script = ExtResource("1_vhrcc")
+
+[node name="SnowTowerRing" type="Sprite2D" parent="."]
+texture = ExtResource("2_llca6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_qfaxt")
