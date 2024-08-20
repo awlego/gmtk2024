@@ -77,7 +77,7 @@ func find_sprite():
 		
 func apply_slow(slow_amount):
 	var old_speed = speed_mod
-	speed_mod *= slow_amount
+	speed_mod *= clamp(slow_amount, 0.25, 100.0)
 	slowed = true
 	var frost_shader := ShaderMaterial.new()
 	frost_shader.shader = load("res://shaders/chilled.gdshader")
