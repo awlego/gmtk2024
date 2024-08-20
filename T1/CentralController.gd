@@ -4,11 +4,14 @@ extends Control
 @onready var menu = $"../Control2/TurretMenu"
 #@onready var level = $"../Control/Level001"
 @onready var level_manager = $"../../"
+@onready var pause_menu_scene = preload("res://pause_menu.tscn")
+
 var selected_turret_type : String = ""
 var turret_instance : Node2D = null
 var level_rect : Rect2
 var current_level: Node = null
 var current_level_int: int = 0
+var current_pause_menu = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -23,7 +26,22 @@ func _ready():
 	event.shift_pressed = true  # Indicate that Shift must be held down
 	InputMap.action_add_event(action_name, event)
 
-
+func toggle_pause_menu() -> void:
+	if current_pause_menu == null:
+		# Menu is not open, so open it
+		current_pause_menu = pause_menu_scene.instantiate()
+		get_tree().root.add_child(current_pause_menu)
+	else:
+		# Menu is open, so close it
+		current_pause_menu.queue_free()
+		current_pause_menu = null
+		
+		
+func _unhandled_input(event) -> void:
+	if event.is_action_pressed("ui_cancel"):  # Escape key
+		toggle_pause_menu()
+		
+		
 func load_level(level_number: int):
 	print("Loading level", level_number)
 	current_level_int = level_number
