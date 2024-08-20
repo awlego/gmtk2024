@@ -7,6 +7,7 @@ class_name GenericEnemy
 var health = 100
 var speed_mod = 1.0
 var health_mod = 1.0
+var slowed: bool = false
 
 # Signal emitted when the enemy is defeated
 signal defeated
@@ -64,3 +65,11 @@ func walk(delta):
 	get_parent().progress += enemy_data.speed * delta * speed_mod
 	if get_parent().progress_ratio == 1.0:
 		end_of_path()
+		
+		
+func apply_slow(slow_amount):
+	print("applied slow")
+	var old_speed = speed_mod
+	speed_mod *= slow_amount
+	await get_tree().create_timer(1.8).timeout
+	speed_mod = old_speed

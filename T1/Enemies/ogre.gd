@@ -16,3 +16,4 @@ func _process(delta):
 
 func apply_damage(damage):
 	return super(damage-5)
+
