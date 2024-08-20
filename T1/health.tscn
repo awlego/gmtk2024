@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://cqpe4am6tl3rm"]
+
+[ext_resource type="Script" path="res://T1/health.gd" id="1_gjgds"]
+[ext_resource type="Texture2D" uid="uid://cas8ieuvak7su" path="res://assets/UI/9pack.png" id="2_rae6n"]
+[ext_resource type="Texture2D" uid="uid://bqjdn1a5335ul" path="res://assets/T1/Turrets/hud_heartFull.png" id="3_g66sl"]
+[ext_resource type="Texture2D" uid="uid://cln1sv6wx5cl6" path="res://assets/T1/Turrets/hud_1.png" id="4_60k8l"]
+[ext_resource type="Texture2D" uid="uid://0mx6bwm62w5y" path="res://assets/T1/Turrets/hud_0.png" id="4_770or"]
+
+[node name="HealthUI" type="Node2D"]
+script = ExtResource("1_gjgds")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+offset_right = 345.0
+offset_bottom = 100.0
+texture = ExtResource("2_rae6n")
+region_rect = Rect2(4, 665, 128, 128)
+patch_margin_left = 34
+patch_margin_top = 33
+patch_margin_right = 33
+patch_margin_bottom = 35
+
+[node name="Coin" type="TextureRect" parent="."]
+offset_left = 71.0
+offset_top = 28.0
+offset_right = 124.0
+offset_bottom = 75.0
+texture = ExtResource("3_g66sl")
+
+[node name="hundreds_digit" type="TextureRect" parent="."]
+offset_left = 152.0
+offset_top = 27.0
+offset_right = 182.0
+offset_bottom = 74.0
+texture = ExtResource("4_60k8l")
+
+[node name="tens_digit" type="TextureRect" parent="."]
+offset_left = 186.0
+offset_top = 27.0
+offset_right = 216.0
+offset_bottom = 74.0
+texture = ExtResource("4_770or")
+
+[node name="ones_digit" type="TextureRect" parent="."]
+offset_left = 220.0
+offset_top = 27.0
+offset_right = 250.0
+offset_bottom = 74.0
+texture = ExtResource("4_770or")

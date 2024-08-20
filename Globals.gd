@@ -56,6 +56,7 @@ func init_tower_stats():
 	
 
 var money = 100
+var health = 100
 
 # Dictionary to store scenes (Levels)
 var scenes = {
@@ -64,6 +65,36 @@ var scenes = {
 	"level3": "res://scenes/Level3.tscn",
 	"main_menu": "res://scenes/MainMenu.tscn"
 }
+
+#####
+# Enemy Stats
+#####
+
+var enemy_stats = {}
+func init_enemy_stats():
+	var er = EnemyResource.new()
+	er.name = "Slime"
+	enemy_stats[er.name] = er
+	er.speed = 100
+	er.health = 100
+	er.damage = 1
+	er.reward = 1
+	
+	er = EnemyResource.new()
+	er.name = "Geometro"
+	enemy_stats[er.name] = er
+	er.speed = 150
+	er.health = 200
+	er.damage = 5
+	er.reward = 3
+	
+	er = EnemyResource.new()
+	er.name = "Ogre"
+	enemy_stats[er.name] = er
+	er.speed = 100
+	er.health = 700
+	er.damage = 20
+	er.reward = 7
 
 var faeries = ["Blue", "Green", "Yellow", "Red", "Purple", "Karen"]
 
@@ -85,36 +116,36 @@ func init_faerie_stats():
 	faerie_stats["Blue"].name = "Blue Faerie"
 	faerie_stats["Blue"].speed = 90
 	faerie_stats["Blue"].health = 80
-	faerie_stats["Blue"].damage = 5
-	faerie_stats["Blue"].reward = 8
+	faerie_stats["Blue"].damage = 1
+	faerie_stats["Blue"].reward = 1
 	
 	faerie_stats["Green"].name = "Green Faerie"
-	faerie_stats["Green"].speed = 110
-	faerie_stats["Green"].health = 110
-	faerie_stats["Green"].damage = 10
-	faerie_stats["Green"].reward = 12
+	faerie_stats["Green"].speed = 120
+	faerie_stats["Green"].health = 120
+	faerie_stats["Green"].damage = 2
+	faerie_stats["Green"].reward = 1
 	
 	faerie_stats["Yellow"].name = "Yellow Faerie"
 	faerie_stats["Yellow"].speed = 200
-	faerie_stats["Yellow"].health = 80
+	faerie_stats["Yellow"].health = 100
 	faerie_stats["Yellow"].damage = 5
-	faerie_stats["Yellow"].reward = 15
+	faerie_stats["Yellow"].reward = 2
 	
 	faerie_stats["Red"].name = "Red Faerie"
-	faerie_stats["Red"].speed = 100
+	faerie_stats["Red"].speed = 200
 	faerie_stats["Red"].health = 200
-	faerie_stats["Red"].damage = 10
-	faerie_stats["Red"].reward = 20
+	faerie_stats["Red"].damage = 5
+	faerie_stats["Red"].reward = 4
 	
 	faerie_stats["Purple"].name = "Purple Faerie"
 	faerie_stats["Purple"].speed = 200
-	faerie_stats["Purple"].health = 200
-	faerie_stats["Purple"].damage = 20
-	faerie_stats["Purple"].reward = 30
+	faerie_stats["Purple"].health = 250
+	faerie_stats["Purple"].damage = 8
+	faerie_stats["Purple"].reward = 5
 	
 	faerie_stats["Karen"].name = "Karen"
 	faerie_stats["Karen"].speed = 400
-	faerie_stats["Karen"].health = 50
+	faerie_stats["Karen"].health = 100
 	faerie_stats["Karen"].damage = 10
 	faerie_stats["Karen"].reward = 1
 
@@ -122,6 +153,7 @@ func init_faerie_stats():
 var current_scene: Node = null
 
 var update_bank_ui_ref = null
+var update_health_ui_ref = null
 
 var leaderboard_id = "gmtk2024-awlego-turret-defense--MXL9"
 
@@ -243,5 +275,6 @@ func switch_scene(scene_name: String) -> void:
 
 func _init():
 	init_tower_stats()
+	init_enemy_stats()
 	init_faerie_stats()
 	init_faerie_sprites()

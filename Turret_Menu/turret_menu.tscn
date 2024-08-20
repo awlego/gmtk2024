@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://c6gbj0863kl1r"]
+[gd_scene load_steps=5 format=3 uid="uid://c6gbj0863kl1r"]
 
 [ext_resource type="Script" path="res://TurretMenu.gd" id="1_ep451"]
 [ext_resource type="PackedScene" uid="uid://bdntvt5byfq3a" path="res://T1/money.tscn" id="2_eod2a"]
 [ext_resource type="PackedScene" uid="uid://dvapa8efw6gdj" path="res://Nametag.tscn" id="3_jamvf"]
+[ext_resource type="PackedScene" uid="uid://cqpe4am6tl3rm" path="res://T1/health.tscn" id="4_1hm1q"]
 
 [node name="TurretMenu" type="Control"]
 layout_mode = 3
@@ -14,22 +15,19 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ep451")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="MoneyUI" parent="." instance=ExtResource("2_eod2a")]
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
-layout_mode = 2
-
-[node name="MoneyUI" parent="VBoxContainer/VBoxContainer" instance=ExtResource("2_eod2a")]
-
-[node name="Nametag" parent="VBoxContainer/VBoxContainer" instance=ExtResource("3_jamvf")]
+[node name="Nametag" parent="." instance=ExtResource("3_jamvf")]
 position = Vector2(1, 106)
 
-[node name="Towers" type="VBoxContainer" parent="VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 10
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.21
+anchor_right = 1.0
+anchor_bottom = 0.883
+offset_top = 225.0
+offset_bottom = -0.192017
+
+[node name="HealthUI" parent="." instance=ExtResource("4_1hm1q")]
+position = Vector2(3, 923)
