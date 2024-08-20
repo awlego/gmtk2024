@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://c6gbj0863kl1r"]
+[gd_scene load_steps=4 format=3 uid="uid://c6gbj0863kl1r"]
 
 [ext_resource type="Script" path="res://TurretMenu.gd" id="1_ep451"]
-[ext_resource type="PackedScene" uid="uid://btkfvg53v31i6" path="res://T1/money.tscn" id="2_eod2a"]
+[ext_resource type="PackedScene" uid="uid://bdntvt5byfq3a" path="res://T1/money.tscn" id="2_eod2a"]
+[ext_resource type="PackedScene" uid="uid://dvapa8efw6gdj" path="res://Nametag.tscn" id="3_jamvf"]
 
 [node name="TurretMenu" type="Control"]
 layout_mode = 3
@@ -19,3 +20,6 @@ offset_bottom = 40.0
 
 [node name="MoneyUI" parent="." instance=ExtResource("2_eod2a")]
 position = Vector2(-350, 920)
+
+[node name="CanvasLayer" parent="." instance=ExtResource("3_jamvf")]
+position = Vector2(-350, 2.08165e-12)
