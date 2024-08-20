@@ -10,6 +10,7 @@ func _ready():
 	collision_layer = Globals.ATTACK_LAYER
 	collision_mask = Globals.ENEMY_LAYER
 	super._ready()
+	attack_name = "Pulse"
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -24,5 +24,6 @@ func _on_area_entered(area):
 	if area.is_in_group("enemy"):
 		if area not in enemies_hit:
 			area.apply_damage(damage)
+			Globals.turret_stats["Damage"]["Snow"] += damage
 			area.apply_slow(0.75)
 			enemies_hit[area] = 0

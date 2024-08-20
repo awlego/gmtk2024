@@ -45,8 +45,6 @@ func detect_enemies():
 		if global_position.distance_to(enemy.global_position) <= turret_data.range:
 			current_target = enemy
 			return
-	
-
 
 # Fire at the target (to be overridden by child classes)
 func fire_at_target(target: Area2D):

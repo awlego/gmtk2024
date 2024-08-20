@@ -3,6 +3,7 @@ class_name AreaAttack
 
 var damage = 10
 var enemies_hit = {}
+var attack_name = "NA"
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	z_index = Globals.Z_ATTACK
@@ -18,4 +19,5 @@ func _on_area_entered(area):
 	if area.is_in_group("enemy"):
 		if area not in enemies_hit:
 			area.apply_damage(damage)
+			Globals.turret_stats["Damage"][attack_name] += damage
 			enemies_hit[area] = 0

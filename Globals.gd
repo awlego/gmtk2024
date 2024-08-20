@@ -194,6 +194,14 @@ func generate_username() -> String:
 
 	return username
 
+var turret_stats = {
+	"Damage": {
+		"Pulse": 0, "Blood": 0, "Lightning": 0, "Magic": 0, "Rainbow": 0, "Snow": 0, "NA": 0,
+	},
+	#"Money": {
+		#"Pulse": 0, "Blood": 0, "Lightning": 0, "Magic": 0, "Rainbow": 0, "Snow": 0,
+	#}
+}
 var towers_placed_stats = {}
 
 

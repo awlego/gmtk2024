@@ -4,6 +4,7 @@ class_name Projectile
 var speed
 var damage
 var target
+@export var attack_name = "NA"
 @export var facing := 0
 
 # Called when the node enters the scene tree for the first time.
@@ -22,6 +23,7 @@ func _process(delta):
 		if target.apply_damage(damage):
 			if is_instance_valid(get_parent()) and get_parent().has_method("_on_kill"):
 				get_parent()._on_kill()
+		Globals.turret_stats["Damage"][attack_name] += damage
 		queue_free()
 	else:
 		global_position += global_position.direction_to(target.global_position) * delta_pos

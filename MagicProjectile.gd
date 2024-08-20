@@ -60,6 +60,7 @@ func damage_enemies():
 	for enemy in %AreaAttack.get_overlapping_areas():
 		if is_instance_valid(enemy):
 			enemy.apply_damage(damage)
+			Globals.turret_stats["Damage"]["Magic"] += damage
 
 func start_hit(delta):
 	global_position = target_pos

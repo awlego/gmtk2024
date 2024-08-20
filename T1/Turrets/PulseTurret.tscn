@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bjwcors1sisqx"]
+[gd_scene load_steps=3 format=3 uid="uid://bjwcors1sisqx"]
 
 [ext_resource type="Script" path="res://T1/Turrets/PulseTurret.gd" id="1_rkhp1"]
+[ext_resource type="SpriteFrames" uid="uid://dek6vlss0fvec" path="res://assets/T1/Turrets/Pulse/PulseTowerAttack.gif" id="2_yjmia"]
 
 [node name="PulseTurret" type="Area2D"]
 scale = Vector2(2, 2)
@@ -8,3 +9,5 @@ script = ExtResource("1_rkhp1")
 
 [node name="TurretSprite" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
+sprite_frames = ExtResource("2_yjmia")
+animation = &"gif"

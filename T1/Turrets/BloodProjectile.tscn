@@ -7,6 +7,7 @@
 
 [node name="BloodProjectile" type="Node2D"]
 script = ExtResource("1_1cf2c")
+attack_name = "Blood"
 
 [node name="Area2D" type="Area2D" parent="."]
 scale = Vector2(0.2, 0.2)

@@ -24,8 +24,9 @@ func fire_at_target(target: Area2D):
 	rotate_towards_target(target)
 	var p = projectile.instantiate()
 	add_child(p)
-	p.setup(self, target)	
+	p.setup(self, target)
 	target.apply_damage(turret_data.damage)
+	Globals.turret_stats["Damage"]["Rainbow"] += turret_data.damage
 	super.fire_at_target(target)
 
 

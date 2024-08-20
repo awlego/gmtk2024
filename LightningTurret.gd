@@ -52,6 +52,7 @@ func draw_lightning_to_target(from_pos, target, chain, damage, hits = {}):
 		lpos = draw_lightning_segment(lpos, lpos.angle_to_point(target_pos) + (randf() - 0.5)) + Vector2(randi_range(-3, 3), randi_range(-3, 3))
 	lpos = draw_lightning_segment(lpos, lpos.angle_to_point(target_pos), lpos.distance_to(target_pos) / sprite_length)
 	var killed = target.apply_damage(target.health/10 + damage)
+	Globals.turret_stats["Damage"]["Lightning"] += (target.health/10 + damage)
 	hits[target] = true
 	var next = find_enemy_near(lpos, chain_distance, hits)
 	if next:
