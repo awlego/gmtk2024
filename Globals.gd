@@ -291,11 +291,16 @@ func delay_game_over():
 	timer.autostart=true
 	Globals.add_child(timer)
 
+func combine_dictionaries(dict1: Dictionary, dict2: Dictionary) -> Dictionary:
+	var combined_dict: Dictionary = dict1.duplicate() # Make a copy of the first dictionary
+	combined_dict.merge(dict2) # Merge the second dictionary into the copy
+	return combined_dict
+
 func game_over():
 	print("You Lost")
 	var score: float = float(Globals.money)
-	var nickname: String = str(Globals.username)
-	var metadata: Dictionary = Globals.towers_placed_stats
+	var nickname: String = str(Globals.username)	
+	var metadata: Dictionary = combine_dictionaries(Globals.towers_placed_stats, Globals.turret_stats)
 
 	print()
 	print("Saving Highscore:")
