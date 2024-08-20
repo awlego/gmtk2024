@@ -5,10 +5,14 @@ var targets = 5
 var chain_distance = 250
 var lightning = load("res://assets/T1/Turrets/Lightning/LightningTowerProjectile.gif")
 const sprite_length = 64
+var pacifist_hits = 0
 
 # Fire at the target (to be overridden by child classes)
 func fire_at_target(target: Area2D):
-	draw_lightning_to_target(global_position + Vector2(0, -32), target, targets, turret_data.damage)
+	if draw_lightning_to_target(global_position + Vector2(0, -32), target, targets, turret_data.damage):
+		pacifist_hits = 0
+	else:
+		pacifist_hits += 1
 	super.fire_at_target(target)
 
 func draw_lightning_segment(pos, rot, scale = 1):
@@ -39,7 +43,7 @@ func draw_lightning_segment(pos, rot, scale = 1):
 
 func draw_lightning_to_target(from_pos, target, chain, damage, hits = {}):
 	if chain <= 0:
-		return
+		return false
 	var target_pos = target.global_position
 	var lpos = from_pos
 	var x = 50
@@ -47,11 +51,12 @@ func draw_lightning_to_target(from_pos, target, chain, damage, hits = {}):
 		x -= 1
 		lpos = draw_lightning_segment(lpos, lpos.angle_to_point(target_pos) + (randf() - 0.5)) + Vector2(randi_range(-3, 3), randi_range(-3, 3))
 	lpos = draw_lightning_segment(lpos, lpos.angle_to_point(target_pos), lpos.distance_to(target_pos) / sprite_length)
-	target.apply_damage(damage)
+	var killed = target.apply_damage(target.health/10 + damage)
 	hits[target] = true
 	var next = find_enemy_near(lpos, chain_distance, hits)
 	if next:
-		draw_lightning_to_target(lpos, next, chain-1, damage, hits)
+		return draw_lightning_to_target(lpos, next, chain-1, damage, hits) or killed
+	return killed
 	
 func find_enemy_near(tpos, max_d, except):
 	var found = 0
@@ -70,7 +75,7 @@ func _ready():
 	turret_data = Globals.LIGHTNING_STATS
 
 func _process(delta):
-	super._process(delta)
+	super._process(delta * (100.0 + pacifist_hits*3) / 100.0)
 	var animate_progress = (turret_data.cooldown - cooldown) / turret_data.cooldown
 	var frame = min(frame_map.size() - 1, round(frame_map.size()*animate_progress))
 	%TurretSprite.frame = frame_map[frame]

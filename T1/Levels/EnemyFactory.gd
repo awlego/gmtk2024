@@ -28,6 +28,10 @@ func _process(delta):
 
 func start_wave(n):
 	wave = n
+	if wave > WAVES.size():
+		infinite = true
+		get_tree().get_first_node_in_group("level").infinite = true
+		return
 	remaining_spawns = WAVES[n-1]["enemies"].duplicate(true)
 	timer = WAVES[n-1]["spawn"]
 	

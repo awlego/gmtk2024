@@ -12,7 +12,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	walk(delta)
+	super(delta)
 
 func apply_damage(damage):
 	return super(damage-5)

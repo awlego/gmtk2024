@@ -6,6 +6,7 @@ class_name GenericT1Level
 var enemies = []
 var life = 100
 var wave = 0
+var infinite = false
 	
 func _ready():
 	level_announce()
@@ -18,7 +19,7 @@ func _process(delta):
 	enemies = get_tree().get_nodes_in_group("enemy")
 	enemies.sort_custom(func(e1, e2): return e1.get_parent().progress_ratio > e2.get_parent().progress_ratio)
 	
-	if enemies.size() == 0:
+	if not infinite and enemies.size() == 0:
 		var wave_done = true
 		for factory in get_tree().get_nodes_in_group("enemy factory"):
 			if not factory.remaining_spawns.is_empty() or factory.wave != wave:
@@ -66,6 +67,8 @@ func start_wave(n):
 	var popup = load("res://T1/Levels/wave_announce.tscn").instantiate()
 	var text = popup.get_child(0)
 	text.text = "Wave " + str(n)
+	if n > EnemyFactory.WAVES.size():
+		text.text = "Endless Mode"
 	var timer = Timer.new()
 	timer.connect("timeout", popup.queue_free)
 	timer.wait_time = 5

@@ -34,7 +34,7 @@ func init_tower_stats():
 	PULSE_STATS.range = 400
 	PULSE_STATS.cost = 15
 	
-	LIGHTNING_STATS.damage = 15
+	LIGHTNING_STATS.damage = 5 # +10% of target health
 	LIGHTNING_STATS.cooldown = 2
 	LIGHTNING_STATS.range = 250
 	LIGHTNING_STATS.cost = 15
