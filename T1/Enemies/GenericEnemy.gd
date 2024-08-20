@@ -44,11 +44,17 @@ func die():
 	Globals.update_bank_ui_ref.call(Globals.money)
 	done()
 
+func game_over():
+	print("You Lost")
+
 func end_of_path():
 	#if level:
 		#level.remove_enemy(self)
-	Globals.money -= 1
-	Globals.update_bank_ui_ref.call(Globals.money)
+	Globals.health -= enemy_data.damage
+	Globals.health = clamp(Globals.health, 0, 100)
+	Globals.update_health_ui_ref.call(Globals.health)
+	if Globals.health == 0:
+		game_over()
 	#print("You now have ", Globals.money, "$")
 	done()
 	

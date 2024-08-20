@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bdntvt5byfq3a"]
+[gd_scene load_steps=6 format=3 uid="uid://bdntvt5byfq3a"]
 
 [ext_resource type="Script" path="res://T1/money.gd" id="1_3n7yf"]
 [ext_resource type="Texture2D" uid="uid://cas8ieuvak7su" path="res://assets/UI/9pack.png" id="1_jgvj7"]
 [ext_resource type="Texture2D" uid="uid://ce3ilpirc70x" path="res://assets/T1/Turrets/hud_coins.png" id="2_d6ugh"]
 [ext_resource type="Texture2D" uid="uid://0mx6bwm62w5y" path="res://assets/T1/Turrets/hud_0.png" id="3_r1pgk"]
+[ext_resource type="Texture2D" uid="uid://cln1sv6wx5cl6" path="res://assets/T1/Turrets/hud_1.png" id="5_r6xad"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_3n7yf")
@@ -44,7 +45,7 @@ offset_left = 183.0
 offset_top = 27.0
 offset_right = 213.0
 offset_bottom = 74.0
-texture = ExtResource("3_r1pgk")
+texture = ExtResource("5_r6xad")
 
 [node name="tens_digit" type="TextureRect" parent="."]
 offset_left = 217.0

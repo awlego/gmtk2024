@@ -56,6 +56,7 @@ func init_tower_stats():
 	
 
 var money = 100
+var health = 100
 
 # Dictionary to store scenes (Levels)
 var scenes = {
@@ -122,6 +123,7 @@ func init_faerie_stats():
 var current_scene: Node = null
 
 var update_bank_ui_ref = null
+var update_health_ui_ref = null
 
 var leaderboard_id = "gmtk2024-awlego-turret-defense--MXL9"
 

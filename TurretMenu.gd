@@ -20,19 +20,17 @@ var unlockable_turrets = [
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
-	$VBoxContainer/Towers.add_theme_constant_override("separation", 24)
+	$VBoxContainer.add_theme_constant_override("separation", 24)
 	
 	var i = 1
 	for turret in starting_turrets:
 		var turret_card = create_turret_card(turret)
-		$VBoxContainer/Towers.add_child(turret_card)
+		$VBoxContainer.add_child(turret_card)
 
 		var action_name = "select_turret_%s" % str(i)
 		InputMap.add_action(action_name)
 		var event = InputEventKey.new()
 		event.physical_keycode = KEY_0 + i # Assign the key programmatically
-
 		InputMap.action_add_event(action_name, event)
 		i += 1
 		
@@ -42,15 +40,6 @@ func add_turret():
 func create_turret_card(turret: Dictionary):
 		# create a vbox container with the turret cost below each turret button
 		var turret_card = VBoxContainer.new()
-		#var nine_patch_background = NinePatchRect.new()
-		#turret_card.add_child(nine_patch_background)
-		#nine_patch_background.texture = load("res://assets/UI/9pack.png")
-		#nine_patch_background.region_rect = Rect2(268, 532, 128, 128)
-		#nine_patch_background.patch_margin_left = 34
-		#nine_patch_background.patch_margin_top = 34
-		#nine_patch_background.patch_margin_right = 34
-		#nine_patch_background.patch_margin_bottom = 34
-
 		var turret_button = create_turret_texture_button(turret)
 		var cost_label = create_cost_label(turret)
 		
