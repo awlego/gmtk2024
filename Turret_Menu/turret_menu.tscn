@@ -9,17 +9,27 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 1040.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ep451")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="MoneyUI" parent="." instance=ExtResource("2_eod2a")]
-position = Vector2(-350, 920)
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
 
-[node name="CanvasLayer" parent="." instance=ExtResource("3_jamvf")]
-position = Vector2(-350, 2.08165e-12)
+[node name="MoneyUI" parent="VBoxContainer/VBoxContainer" instance=ExtResource("2_eod2a")]
+
+[node name="Nametag" parent="VBoxContainer/VBoxContainer" instance=ExtResource("3_jamvf")]
+position = Vector2(1, 106)
+
+[node name="Towers" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 10
