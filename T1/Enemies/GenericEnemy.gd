@@ -48,6 +48,18 @@ func die():
 
 func game_over():
 	print("You Lost")
+	var score: float = float(Globals.money)
+	var nickname: String = str(Globals.username)
+	var metadata: Dictionary = Globals.towers_placed_stats
+
+	print()
+	print("Saving Highscore:")
+	print("Nickname: %s" % nickname)
+	print("Score: %s" % score)
+	print()
+	await Leaderboards.post_guest_score(Globals.leaderboard_id, score, nickname, metadata)
+	await get_tree().create_timer(5).timeout
+
 	get_tree().change_scene_to_file(game_over_scene_path)
 
 
