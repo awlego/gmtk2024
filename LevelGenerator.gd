@@ -228,16 +228,20 @@ func _process(delta):
 # LEVELS!!!
 
 const LEVELS = [
-	[
+	[ # 0
 		[Vector2(3,0), Vector2(5,0), Vector2(5,5), Vector2(5,12), Vector2(12,12), 
 			Vector2(12,5), Vector2(3,5), Vector2(3,16)]
-	], [
+	], [ # 1
 		[Vector2(10,10), Vector2(10,7), Vector2(7,7), Vector2(7,10), Vector2(13,10),
 			Vector2(13,4), Vector2(4,4), Vector2(4,16)]
-	], [
+	], [ # 2
 		[Vector2(0,1), Vector2(15,1), Vector2(15,15), Vector2(1,15), Vector2(1,2)],
 		[Vector2(4,4), Vector2(4,12), Vector2(12,12), Vector2(12,4), Vector2(5,4)],
-	], [
+	], [ # 3
 		[Vector2(8,0), Vector2(8,12)]
 	],
+]
+
+const LEVEL_BUFF_RATES = [
+	1, 1.2, 1, 1.5
 ]

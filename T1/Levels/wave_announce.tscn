@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjy4oeuaik4td"]
+
+[ext_resource type="FontFile" uid="uid://cbu61xk6hc0j4" path="res://assets/UI/alagard.ttf" id="1_vt7lj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1lqya"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+bg_color = Color(0.654232, 0.654232, 0.654232, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="Wave Announce" type="PopupPanel"]
+size = Vector2i(480, 152)
+visible = true
+theme_override_styles/panel = SubResource("StyleBoxFlat_1lqya")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 470.0
+offset_bottom = 152.0
+theme_override_colors/font_color = Color(0.27451, 0.27451, 0.27451, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 3
+theme_override_fonts/font = ExtResource("1_vt7lj")
+theme_override_font_sizes/font_size = 150
+text = "Wave 2"

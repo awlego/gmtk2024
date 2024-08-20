@@ -1,0 +1,15 @@
+[remap]
+
+importer="import_gif_to_sprite_frames"
+type="SpriteFrames"
+uid="uid://dbokx44vdaup3"
+path="res://.godot/imported/EggTurret.gif-a131dc2a0111d3361e0eb25c448b0fe7.tres"
+
+[deps]
+
+source_file="res://assets/T1/Turrets/Egg/EggTurret.gif"
+dest_files=["res://.godot/imported/EggTurret.gif-a131dc2a0111d3361e0eb25c448b0fe7.tres"]
+
+[params]
+
+frames_per_second=30

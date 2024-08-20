@@ -3,6 +3,7 @@ extends Control
 signal turret_selected(turret_type)
 @onready var vbox_container = $VBoxContainer
 
+var i = 1
 # A list of dictionaries containing the turret type and corresponding sprite path
 var starting_turrets = [
 	{"type": "blood_turret", "sprite_path": "res://assets/T1/Turrets/Blood/BloodShooter.gif", "stats": Globals.BLOOD_STATS},
@@ -12,6 +13,9 @@ var starting_turrets = [
 	{"type": "RainbowLensTurret", "sprite_path": "res://assets/T1/Turrets/RainbowLens/RainbowLensTurret.gif", "stats": Globals.RAINBOW_LENS_STATS},
 ]
 
+var unlockable_turrets = [
+	
+]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -30,7 +34,8 @@ func _ready():
 		InputMap.action_add_event(action_name, event)
 		i += 1
 		
-	
+func add_turret():
+	pass
 
 func create_turret_card(turret: Dictionary):
 		# create a vbox container with the turret cost below each turret button

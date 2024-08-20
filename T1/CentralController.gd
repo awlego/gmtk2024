@@ -12,6 +12,7 @@ var current_level_int: int = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	add_to_group("central")
 	menu.connect("turret_selected", Callable(self, "_on_turret_selected"))
 	load_level(001)
 	level_rect = Rect2(Vector2(0,0), Vector2(1024,1024))
@@ -46,6 +47,8 @@ func load_level(level_number: int):
 	else:
 		print("Failed to load level %d" % level_number)
 
+func next_level():
+	load_level(current_level_int + 1)
 
 	
 #func setup_level_rect():
@@ -165,8 +168,8 @@ func place_turret():
 				hide_turret_range(turret_instance)
 				Globals.money -= turret_instance.turret_data.cost
 				Globals.update_bank_ui_ref.call(Globals.money)
-				if Globals.money > 1000*current_level_int:
-					load_level(current_level_int + 1)
+				#if Globals.money > 1000*current_level_int:
+					#load_level(current_level_int + 1)
 				turret_instance = null  # Clear the instance after placement
 			else:
 				print("Invalid placement location!")

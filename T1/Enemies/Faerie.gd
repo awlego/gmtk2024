@@ -5,10 +5,12 @@ const FPS = 20
 const SPF = 1.0/FPS
 var time_to_frame = SPF
 @onready var sprite = Sprite2D.new()
+var color
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var color = Globals.faeries.pick_random()
+	if color == null:
+		color = Globals.faeries.pick_random()
 	enemy_data = Globals.faerie_stats[color]
 
 	#image.load()
@@ -39,3 +41,11 @@ func frameup(delta):
 	if time_to_frame<0:
 		sprite.frame = (sprite.frame + 1) % 4
 		time_to_frame = SPF
+
+static func make_faerie(color):
+	var e = PathFollow2D.new()
+	e.loop = false
+	var fae = Faerie.new()
+	fae.color = color
+	e.add_child(fae)
+	return e
