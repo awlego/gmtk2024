@@ -6,7 +6,7 @@ class_name GenericEnemy
 #var level: GenericT1Level
 var health = 100
 var speed_mod = 1.0
-
+var health_mod = 1.0
 
 # Signal emitted when the enemy is defeated
 signal defeated
@@ -14,7 +14,7 @@ signal defeated
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	add_to_group("enemy")
-	health = enemy_data.health
+	health = enemy_data.health * health_mod
 	get_parent().loop = false
 	z_index = Globals.Z_ENEMY
 	pass # Initialization code here

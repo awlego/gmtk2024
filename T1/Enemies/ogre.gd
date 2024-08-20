@@ -14,3 +14,5 @@ func _ready():
 func _process(delta):
 	walk(delta)
 
+func apply_damage(damage):
+	return super(damage-5)

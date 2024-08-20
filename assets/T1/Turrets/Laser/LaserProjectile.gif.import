@@ -1,0 +1,15 @@
+[remap]
+
+importer="import_gif_to_sprite_frames"
+type="SpriteFrames"
+uid="uid://d2l88o4q4r4ks"
+path="res://.godot/imported/LaserProjectile.gif-c54ea0b703d7aafca76bbd196992c44e.tres"
+
+[deps]
+
+source_file="res://assets/T1/Turrets/Laser/LaserProjectile.gif"
+dest_files=["res://.godot/imported/LaserProjectile.gif-c54ea0b703d7aafca76bbd196992c44e.tres"]
+
+[params]
+
+frames_per_second=30

@@ -3,6 +3,8 @@ extends Node
 class_name EnemyFactory
 
 var rate = 2.0
+const max_rate = 10.0
+var difficulty = 1.0
 var timer = 0.5
 var scale_amount = 0.1
 var scale_cooldown = 3.0
@@ -23,6 +25,9 @@ func _process(delta):
 	if scaler_timer < 0:
 		scaler_timer += scale_cooldown
 		rate += scale_amount
+		if rate > max_rate:
+			difficulty += rate - max_rate
+			rate = max_rate
 
 
 @export var enemy_scene = preload("res://T1/Enemies/BasicEnemy.tscn") # The generic enemy scene
@@ -59,6 +64,10 @@ func create_enemy():
 		var fae = Faerie.new()
 		e.add_child(fae)
 		enemy_instance = e
+	
+	if difficulty > 1:
+		enemy_instance.get_child(0).speed_mod = min(10, 1.0 + difficulty / 100)
+		enemy_instance.get_child(0).health_mod = difficulty
 	#enemy_instance.position = position
 
 	# Assign the enemy data

@@ -1,0 +1,15 @@
+[remap]
+
+importer="import_gif_to_sprite_frames"
+type="SpriteFrames"
+uid="uid://dipdm70r3oyov"
+path="res://.godot/imported/SnowProjectile.gif-962a8f39c706a367a1ba1c923ebac502.tres"
+
+[deps]
+
+source_file="res://assets/T1/Turrets/Snow/SnowProjectile.gif"
+dest_files=["res://.godot/imported/SnowProjectile.gif-962a8f39c706a367a1ba1c923ebac502.tres"]
+
+[params]
+
+frames_per_second=30
