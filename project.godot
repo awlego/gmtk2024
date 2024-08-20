@@ -18,11 +18,18 @@ config/icon="res://icon.svg"
 [autoload]
 
 Globals="*res://Globals.gd"
+Analytics="*res://addons/quiver_analytics/analytics.tscn"
+Leaderboards="*res://addons/quiver_leaderboards/leaderboards.tscn"
+PlayerAccounts="*res://addons/quiver_player_accounts/player_accounts.tscn"
 
 [display]
 
 window/size/viewport_height=1024
 window/stretch/mode="canvas_items"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/quiver_analytics/plugin.cfg", "res://addons/quiver_leaderboards/plugin.cfg", "res://addons/quiver_player_accounts/plugin.cfg")
 
 [layer_names]
 
@@ -30,6 +37,12 @@ window/stretch/mode="canvas_items"
 2d_physics/layer_2="Attacks"
 2d_physics/layer_3="Towers"
 2d_physics/layer_4="Path"
+
+[quiver]
+
+general/auth_token="cLkIqDLlEdwTUyVEYra5Xu1si0cRfX3xKLWpADyK"
+analytics/auto_add_event_on_launch=false
+analytics/auto_add_event_on_quit=false
 
 [rendering]
 

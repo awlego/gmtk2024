@@ -116,11 +116,33 @@ var current_scene: Node = null
 
 var update_bank_ui_ref = null
 
+var leaderboard_id = "gmtk2024-awlego-turret-defense--MXL9"
+
+var username: String = ""
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	username = generate_username()
 	pass # Replace with function body.
 
 
+func generate_username() -> String:
+	"""Makes a funny sounding username"""
+
+	# Lists of funny syllables or words
+	var prefixes = ["Fluffy", "Bumpy", "Wiggly", "Snooty", "Zippy", "Squishy"]
+	var suffixes = ["Pants", "Noodle", "Sprout", "Muffin", "Bumble", "Doodle"]
+
+	# Combine a random prefix, middle, and suffix
+	var prefix = prefixes[randi() % prefixes.size()]
+	var suffix = suffixes[randi() % suffixes.size()]
+
+	# Combine them to form the username
+	var username = prefix + suffix
+
+	return username
+
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
