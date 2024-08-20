@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://btkfvg53v31i6"]
+[gd_scene load_steps=5 format=3 uid="uid://bdntvt5byfq3a"]
 
 [ext_resource type="Script" path="res://T1/money.gd" id="1_3n7yf"]
 [ext_resource type="Texture2D" uid="uid://cas8ieuvak7su" path="res://assets/UI/9pack.png" id="1_jgvj7"]

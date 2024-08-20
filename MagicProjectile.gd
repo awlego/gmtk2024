@@ -22,6 +22,7 @@ func setup(target_pos, duration, cooldown_max, damage):
 
 func _ready():
 	z_index = Globals.Z_ATTACK
+	z_as_relative = false
 	speed_x = target_pos.x - global_position.x
 	speed_x *= TTH
 	var diffy = target_pos.y - global_position.y

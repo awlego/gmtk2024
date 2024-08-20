@@ -31,18 +31,21 @@ func _ready():
 	collision_mask = Globals.TOWER_MASK
 	var collisionNode = CollisionShape2D.new()
 	var rect = RectangleShape2D.new()
+	var circ = CircleShape2D.new()
+	circ.radius = 7
 	rect.size = Vector2(15, 15)
-	collisionNode.shape = rect
+	collisionNode.shape = circ
 	z_index = Globals.Z_TURRET
 	add_child(collisionNode)
 
 # Detect enemies within range
 func detect_enemies():
-	for enemy in get_tree().get_nodes_in_group("enemy"):
+	current_target = null
+	for enemy in get_tree().get_first_node_in_group("level").enemies:
 		if global_position.distance_to(enemy.global_position) <= turret_data.range:
 			current_target = enemy
 			return
-	current_target = null
+	
 
 
 # Fire at the target (to be overridden by child classes)
