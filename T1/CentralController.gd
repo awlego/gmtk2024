@@ -15,6 +15,13 @@ func _ready():
 	menu.connect("turret_selected", Callable(self, "_on_turret_selected"))
 	load_level(001)
 	level_rect = Rect2(Vector2(0,0), Vector2(1024,1024))
+	
+	var action_name = "save_highscore"
+	InputMap.add_action(action_name)
+	var event = InputEventKey.new()
+	event.physical_keycode = KEY_S  # Set the physical key to 'S'
+	event.shift_pressed = true  # Indicate that Shift must be held down
+	InputMap.action_add_event(action_name, event)
 
 
 func load_level(level_number: int):
@@ -180,3 +187,21 @@ func _process(delta):
 			turret_instance.modulate = Color(1, 1, 1, 1)  # Normal appearance (valid placement)
 		else:
 			turret_instance.modulate = Color(1, 0, 0, 0.5)  # Red and semi-transparent (invalid placement)
+			
+	if Input.is_action_just_pressed("save_highscore"):
+		var score: float = float(Globals.money)
+		var nickname: String = "awlego"
+		var metadata: Dictionary = {}
+		var timestamp = Time.get_datetime_string_from_system()
+		var automatically_retry = true
+
+		print()
+		print("Saving Highscore:")
+		print("Nickname: %s" % nickname)
+		print("Score: %s" % score)
+		print("Timestamp: %s" % timestamp)
+		print("Metadata: %s" % metadata)
+		print("Automatically Retry: %s" % str(automatically_retry))
+		print()
+		await Leaderboards.post_guest_score(Globals.leaderboard_id, score, nickname)
+		#await Leaderboards.post_guest_score(Globals.leaderboard_id, score, nickname, metadata, timestamp, automatically_retry)

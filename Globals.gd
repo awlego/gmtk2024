@@ -115,6 +115,8 @@ var current_scene: Node = null
 
 var update_bank_ui_ref = null
 
+var leaderboard_id = "gmtk2024-awlego-turret-defense--MXL9"
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
