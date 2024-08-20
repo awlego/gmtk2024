@@ -129,15 +129,54 @@ func generate_username() -> String:
 	"""Makes a funny sounding username"""
 
 	# Lists of funny syllables or words
-	var prefixes = ["Fluffy", "Bumpy", "Wiggly", "Snooty", "Zippy", "Squishy"]
-	var suffixes = ["Pants", "Noodle", "Sprout", "Muffin", "Bumble", "Doodle"]
+	var prefixes = [
+	"Fluffy", "Bumpy", "Wiggly", "Snooty", "Zippy", "Squishy", "Pinky", "Fizzy", "Gooey", "Puffy",
+	"Nifty", "Giggly", "Tippy", "Snappy", "Sniffy", "Twisty", "Cranky", "Blinky", "Plumpy", "Snazzy",
+	"Fuzzy", "Giddy", "Wacky", "Kooky", "Quirky", "Jumpy", "Zappy", "Zippy", "Blinky", "Chunky",
+	"Dizzy", "Snork", "Nudgy", "Gloopy", "Flumpy", "Spunky", "Frump", "Nappy", "Twirly",
+	"Whirly", "Funky", "Bumpy", "Bippy", "Guppy", "Poppy", "Dippy", "Sappy", "Twinky", "Goofy",
+	"Blippy", "Dizzy", "Snippy", "Nobby", "Silly", "Sappy", "Wiggly", "Nubby", "Fizzy", "Swoosh",
+	"Wiggy", "Nifty", "Jolly", "Bubby", "Funky", "Gunky", "Squee", "Sassy", "Twirl", "Pippy",
+	"Tippy", "Crump", "Spork", "Snort", "Drift", "Punky", "Dinky", "Spuzz", "Plink", "Floop",
+	"Glimp", "Twink", "Twizz", "Whisp", "Gibby", "Quirk", "Fizzy", "Griff", "Wibble", "Flonk",
+	"Pippy", "Skimp", "Topsy", "Bloop", "Waggy", "Gloom", "Tizzy", "Plonk", "Froop", "Chirp",
+	"Trick", "Zippy", "Tweak", "Smirk", "Fluke", "Wubsy", "Snoop", "Crump", "Squeek", "Frizz",
+	"Whizz", "Blump", "Snook", "Blook", "Clomp", "Swizz", "Clink", "Waggy", "Thrum", "Borky",
+	"Pinky", "Drift", "Slink", "Jolly", "Spork", "Whiff", "Tinky", "Frump", "Glint", "Snugg",
+	"Wizzy", "Bumpy", "Squib", "Tizzy", "Squig", "Crimp", "Nudge", "Skimp", "Whomp",
+	"Squop", "Whump", "Squee", "Snork", "Gloop", "Skink", "Slink", "Swoop", "Snick",
+	"Blurb", "Whirr", "Thwap", "Smirk", "Snogg", "Spork", "Whomp", "Quirk", "Winky", "Thrum",
+	"Spiff", "Snazz", "Whizz", "Blinky", "Squib", "Drift", "Wubsy", "Twirl", "Pinky", "Twerp",
+	"Spunk", "Sniff", "Snort", "Flink", "Snubb", "Squirt", "Fizzy", "Wizzy", "Smirk", "Swoop"
+]
+	var suffixes = [
+	"Pants", "Noodle", "Sprout", "Muffin", "Bumble", "Doodle", "Sniff", "Twirl", "Fluff", "Munch",
+	"Zappy", "Blitz", "Spork", "Swoop", "Twerp", "Ploop", "Chirp", "Thunk", "Squish", "Wacky",
+	"Fluke", "Snark", "Twist", "Plunk", "Wobble", "Doodle", "Smush", "Sniff", "Munch", "Thunk",
+	"Blurt", "Squib", "Twist", "Clomp", "Bliss", "Whiff", "Zippy", "Ploop", "Tizzy", "Froop",
+	"Snort", "Borky", "Waggy", "Fluff", "Skimp", "Twink", "Nudge", "Clink", "Thump", "Drift",
+	"Snuff", "Fritz", "Squib", "Spork", "Pinky", "Tweak", "Nudge", "Slink", "Thump", "Glint",
+	"Squid", "Plink", "Whump", "Thump", "Squat", "Gloop", "Swoop", "Crimp", "Plunk", "Wubsy",
+	"Thrum", "Smirk", "Froop", "Blinky", "Tweak", "Twink", "Swoosh", "Plonk", "Tizzy", "Wifty",
+	"Ploop", "Sniff", "Pants", "Munch", "Twirl", "Dorky", "Thunk", "Snuff", "Flick", "Squib",
+	"Thunk", "Snork", "Whizz", "Drift", "Thrum", "Whomp", "Tizzy", "Clump", "Nifty", "Squirt",
+	"Flick", "Squee", "Glimp", "Tweak", "Wibble", "Plonk", "Squat", "Thunk", "Snork", "Squat",
+	"Munch", "Thunk", "Plink", "Wifty", "Whomp", "Thunk", "Froop", "Sniff", "Smirk", "Squee",
+	"Twirl", "Spork", "Twink", "Bloop", "Thunk", "Squib", "Clomp", "Plink", "Thrum", "Squeek",
+	"Snook", "Smirk", "Squib", "Ploop", "Thump", "Squat", "Gloop", "Twirl", "Spork", "Munch",
+	"Plunk", "Thrum", "Squib", "Thunk", "Tweak", "Squat", "Smirk", "Twirl", "Wifty", "Squirt",
+	"Twink", "Sniff", "Pants", "Wifty", "Snark", "Thunk", "Flick", "Wobble", "Froop", "Squib",
+	"Thunk", "Wifty", "Whomp", "Ploop", "Twist", "Thunk", "Gloop", "Thunk", "Twirl", "Fritz"
+]
 
 	# Combine a random prefix, middle, and suffix
 	var prefix = prefixes[randi() % prefixes.size()]
 	var suffix = suffixes[randi() % suffixes.size()]
+	var num = randi_range(0, 1000)
 
 	# Combine them to form the username
-	var username = prefix + suffix
+	var username = prefix + suffix + str(num)
+	print("Username: ", username)
 
 	return username
 
