@@ -10,6 +10,7 @@ var starting_turrets = [
 	{"type": "LightningTurret", "sprite_path": "res://assets/T1/Turrets/Lightning/LightningTower.gif", "stats": Globals.LIGHTNING_STATS},
 	{"type": "MagicTower", "sprite_path": "res://assets/T1/Turrets/Magic/MagicTower.gif", "stats": Globals.MAGIC_STATS},
 	{"type": "RainbowLensTurret", "sprite_path": "res://assets/T1/Turrets/RainbowLens/RainbowLensTurret.gif", "stats": Globals.RAINBOW_LENS_STATS},
+	{"type": "SnowTurret", "sprite_path": "res://assets/T1/Turrets/Snow/SnowTower.gif", "stats": Globals.SNOW_STATS},
 ]
 
 
@@ -113,3 +114,5 @@ func _process(delta):
 		turret_selected.emit(starting_turrets[3]['type'])
 	elif Input.is_action_just_pressed("select_turret_5"):
 		turret_selected.emit(starting_turrets[4]['type'])
+	elif Input.is_action_just_pressed("select_turret_6"):
+		turret_selected.emit(starting_turrets[5]['type'])

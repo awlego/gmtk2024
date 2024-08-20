@@ -22,6 +22,7 @@ var PULSE_STATS = TurretResource.new()
 var LIGHTNING_STATS = TurretResource.new()
 var MAGIC_STATS = TurretResource.new()
 var RAINBOW_LENS_STATS = TurretResource.new()
+var SNOW_STATS = TurretResource.new()
 func init_tower_stats():
 	BLOOD_STATS.damage = 15
 	BLOOD_STATS.cooldown = 0.5
@@ -47,6 +48,12 @@ func init_tower_stats():
 	RAINBOW_LENS_STATS.cooldown = 4
 	RAINBOW_LENS_STATS.range = 500
 	RAINBOW_LENS_STATS.cost = 30
+	
+	SNOW_STATS.damage = 10
+	SNOW_STATS.cooldown = 1.4
+	SNOW_STATS.range = 200
+	SNOW_STATS.cost = 50
+	
 
 var money = 100
 
