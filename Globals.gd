@@ -25,7 +25,7 @@ var RAINBOW_LENS_STATS = TurretResource.new()
 var SNOW_STATS = TurretResource.new()
 func init_tower_stats():
 	BLOOD_STATS.damage = 15
-	BLOOD_STATS.cooldown = 0.5
+	BLOOD_STATS.cooldown = 0.7
 	BLOOD_STATS.range = 300
 	BLOOD_STATS.cost = 10
 	
@@ -39,13 +39,13 @@ func init_tower_stats():
 	LIGHTNING_STATS.range = 250
 	LIGHTNING_STATS.cost = 15
 	
-	MAGIC_STATS.damage = 5
+	MAGIC_STATS.damage = 10
 	MAGIC_STATS.cooldown = 2
 	MAGIC_STATS.range = 150
 	MAGIC_STATS.cost = 15
 	
-	RAINBOW_LENS_STATS.damage = 100
-	RAINBOW_LENS_STATS.cooldown = 4
+	RAINBOW_LENS_STATS.damage = 200
+	RAINBOW_LENS_STATS.cooldown = 3
 	RAINBOW_LENS_STATS.range = 500
 	RAINBOW_LENS_STATS.cost = 30
 	
@@ -91,7 +91,7 @@ func init_enemy_stats():
 	er = EnemyResource.new()
 	er.name = "Ogre"
 	enemy_stats[er.name] = er
-	er.speed = 100
+	er.speed = 80
 	er.health = 700
 	er.damage = 20
 	er.reward = 7
@@ -162,6 +162,12 @@ var username: String = ""
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	username = generate_username()
+
+func reset():
+	health = 100
+	money = 100
+	towers_placed_stats = {}
+	
 
 	pass # Replace with function body.
 

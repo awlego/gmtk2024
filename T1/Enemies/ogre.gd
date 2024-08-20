@@ -16,5 +16,5 @@ func _process(delta):
 	super(delta)
 
 func apply_damage(damage):
-	return super(damage-5)
+	return super(max(2, damage-10))
 

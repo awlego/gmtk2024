@@ -12,6 +12,7 @@ func _ready():
 	Globals.update_bank_ui_ref = Callable(self, "update_bank_ui")
 	for i in range(0, 10):
 		number_images[i] = load(num_img_path % i)
+	update_bank_ui(Globals.money)
 	
 
 

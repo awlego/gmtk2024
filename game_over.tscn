@@ -1,0 +1,64 @@
+[gd_scene load_steps=4 format=3 uid="uid://csw017unvcaey"]
+
+[ext_resource type="Script" path="res://game_over.gd" id="1_e40fn"]
+[ext_resource type="Texture2D" uid="uid://cas8ieuvak7su" path="res://assets/UI/9pack.png" id="1_gbuqf"]
+[ext_resource type="PackedScene" uid="uid://dgygkbtm0burn" path="res://addons/quiver_leaderboards/leaderboard_ui.tscn" id="3_7mdsi"]
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_e40fn")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_right = 1389.0
+offset_bottom = 1020.0
+texture = ExtResource("1_gbuqf")
+region_rect = Rect2(4, 665, 128, 128)
+patch_margin_left = 34
+patch_margin_top = 34
+patch_margin_right = 34
+patch_margin_bottom = 34
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 490.0
+offset_top = 19.0
+offset_right = 959.0
+offset_bottom = 143.0
+theme_override_font_sizes/font_size = 80
+text = "Game Over!"
+
+[node name="LeaderboardUILocal" parent="." instance=ExtResource("3_7mdsi")]
+layout_mode = 2
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -1.0
+offset_top = 162.0
+offset_right = 685.0
+offset_bottom = 930.0
+
+[node name="LeaderboardUITop" parent="." instance=ExtResource("3_7mdsi")]
+layout_mode = 2
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 685.0
+offset_top = 162.0
+offset_right = 1388.0
+offset_bottom = 930.0
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 617.0
+offset_top = 938.0
+offset_right = 752.0
+offset_bottom = 969.0
+text = "Start New Game"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
