@@ -71,7 +71,7 @@ func end_of_path():
 	Globals.health = clamp(Globals.health, 0, 100)
 	Globals.update_health_ui_ref.call(Globals.health)
 	if Globals.health == 0:
-		game_over()
+		Globals.delay_game_over()
 	#print("You now have ", Globals.money, "$")
 	done()
 	

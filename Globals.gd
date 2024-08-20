@@ -279,6 +279,35 @@ func switch_scene(scene_name: String) -> void:
 	else:
 		print("Scene not found: " + scene_name)
 
+var game_over_flag = false
+func delay_game_over():
+	if game_over_flag:
+		return
+	game_over_flag = true
+	var timer = Timer.new()
+	timer.wait_time=.01
+	timer.connect("timeout", game_over)
+	timer.one_shot=true
+	timer.autostart=true
+	Globals.add_child(timer)
+
+func game_over():
+	print("You Lost")
+	var score: float = float(Globals.money)
+	var nickname: String = str(Globals.username)
+	var metadata: Dictionary = Globals.towers_placed_stats
+
+	print()
+	print("Saving Highscore:")
+	print("Nickname: %s" % nickname)
+	print("Score: %s" % score)
+	print()
+	await Leaderboards.post_guest_score(Globals.leaderboard_id, score, nickname, metadata)
+	await get_tree().create_timer(5).timeout
+
+	game_over_flag = false
+	get_tree().change_scene_to_file("res://game_over.tscn")
+
 func _init():
 	init_tower_stats()
 	init_enemy_stats()
